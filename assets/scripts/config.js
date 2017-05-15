@@ -2,7 +2,7 @@
 
 const config = {
   apiOrigins: {
-    production: 'https://three-amigos.herokuapp.com/'
+    production: 'https://three-amigos.herokuapp.com'
   }
 }
 
