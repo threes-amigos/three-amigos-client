@@ -2,7 +2,7 @@
 
 const config = {
   apiOrigins: {
-    production: 'https://ga-wdi-boston.herokuapp.com'
+    production: 'https://git.generalassemb.ly/Three-Amigos/three-amigos-express-api'
   }
 }
 
