@@ -51,11 +51,11 @@ const onGetSurveys = function (event) {
     .catch(ui.getSurveysFailure)
 }
 const onCreateSurvey = function (event) {
-  console.log('onCreateSurvey called')
   event.preventDefault()
-  api.onCreateSurvey()
-    .then(ui.changePasswordSuccess)
-    .catch(ui.changePasswordFailure)
+  const data = getFormFields(event.target)
+  api.onCreateSurvey(data)
+    .then(ui.onCreateSurveySuccess)
+    .catch(ui.onCreateSurveyFailure)
 }
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)

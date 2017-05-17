@@ -52,6 +52,14 @@ const getSurveysFailure = (error) => {
   console.log('Get Surveys Failure')
   console.error(error)
 }
+const onCreateSurveySuccess = (data) => {
+  console.log('Create Survey success', data)
+  // store.surveys = data.surveys
+}
+const onCreateSurveyFailure = (error) => {
+  console.log('Get Surveys Failure')
+  console.error(error)
+}
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -62,5 +70,7 @@ module.exports = {
   changePasswordFailure,
   changePasswordSuccess,
   getSurveysSuccess,
-  getSurveysFailure
+  getSurveysFailure,
+  onCreateSurveySuccess,
+  onCreateSurveyFailure
 }

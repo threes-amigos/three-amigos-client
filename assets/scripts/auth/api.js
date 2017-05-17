@@ -51,7 +51,8 @@ const onGetSurveys = () => {
 }
 
 const onCreateSurvey = (data) => {
-  console.log('onCreateHive Called')
+  console.log('onCreateSurvey data: ', data)
+  console.log('store.user.token ', store.user.token)
   return $.ajax({
     url: config.apiOrigin + '/surveys',
     method: 'POST',
@@ -59,6 +60,15 @@ const onCreateSurvey = (data) => {
       Authorization: 'Token token=' + store.user.token},
     data
   })
+  // return $.ajax({
+  //   url: config.apiOrigin + '/surveys',
+  //   method: 'POST',
+  //   headers: {
+  //     'Authorization': 'Token token=' + store.user.token,
+  //     'Content-Type': 'application/json'
+  //   },
+  //   data
+  // })
 }
 module.exports = {
   signUp,
