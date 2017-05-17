@@ -43,12 +43,27 @@ const onChangePassword = function (event) {
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
 }
-
+const onGetSurveys = function (event) {
+  console.log('onGetSurveys called')
+  event.preventDefault()
+  api.onGetSurveys()
+    .then(ui.getSurveysSuccess)
+    .catch(ui.getSurveysFailure)
+}
+const onCreateSurvey = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  api.onCreateSurvey(data)
+    .then(ui.onCreateSurveySuccess)
+    .catch(ui.onCreateSurveyFailure)
+}
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onChangePassword)
+  $('#create-survey').on('submit', onCreateSurvey)
+  $('#get-surveys').on('submit', onGetSurveys)
 }
 module.exports = {
   addHandlers

@@ -53,12 +53,33 @@
         </fieldset>
         <br>
       </form>
+
       <form id="sign-out">
         <fieldset>
         <input type="submit" name="submit" value="Sign Off">
         </fieldset>
       </form>
+      <br>
+
+      <form id="create-survey">
+      <fieldset>
+      <div class="input-group">
+        <span class="input-group-addon"  id="survey-name"></span>
+        <input type="text" name="surveySchema[name]" class="form-control" placeholder="Survey Name" aria-describedby="basic-addon1">
+        <span class="input-group-addon" id="survey-url"></span>
+        <input type="text" name="surveySchema[url]" class="form-control" placeholder="Survey URL" aria-describedby="basic-addon1">
+      </div>
+        <input type="submit" name="submit" value="Create Survey">
+      </fieldset>
+      <br>
+      </form>
 
       <br>
+      <form id="get-surveys">
+        <fieldset>
+        <input type="submit" name="submit" value="Get Surveys">
+        </fieldset>
+      </form>
+       <br>
     </body>
 </html>
