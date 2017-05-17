@@ -98,15 +98,28 @@
       <form id="delete-survey">
       <fieldset>
       <div class="input-group">
-        <span class="input-group-addon"  id="survey-id"></span>
+        <span class="input-group-addon"  id="id-survey"></span>
         <input type="text" name="deleteId[id]" class="form-control" placeholder="Survey ID" aria-describedby="basic-addon1">
       </div>
         <input type="submit" name="submit" value="Delete Survey">
       </fieldset>
-      <br>
-
       </form>
        <br>
+
+       <form id="create-question">
+       <fieldset>
+       <div class="input-group">
+         <span class="input-group-addon"  id="name-question"></span>
+         <input type="text" name="question[question]" class="form-control" placeholder="Question" aria-describedby="basic-addon1">
+         <span class="input-group-addon" id="question-id"></span>
+         <input type="text" name="question[questionNumber]" class="form-control" placeholder="question Number" aria-describedby="basic-addon1">
+         <span class="input-group-addon" id="q-id-survey"></span>
+         <input type="text" name="question[_survey]" class="form-control" placeholder="Survey ID" aria-describedby="basic-addon1">
+       </div>
+         <input type="submit" name="submit" value="Create Question">
+       </fieldset>
+       <br>
+       </form>
      <div id='content'>
      </div>
     </body>
