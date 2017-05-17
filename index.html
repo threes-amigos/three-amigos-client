@@ -238,19 +238,23 @@
 <!-- Modals -->
 
 <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="Sign Up">
-  <form id="sign-up">
-  <fieldset>
-    <div class="input-group">
-      <span class="input-group-addon"  id="emailAddress"></span>
-      <input type="text" name="credentials[email]" class="form-control" placeholder="Email Address" aria-describedby="basic-addon1">
-      <span class="input-group-addon" id="passWord"></span>
-      <input type="password" name="credentials[password]" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
-      <span class="input-group-addon" id="basic-addon1"></span>
-      <input type="password" name="credentials[password_confirmation]" class="form-control" placeholder="Password Confirmation" aria-describedby="basic-addon1">
-    </div>
-      <input type="submit" name="submit" value="Sign up">
-  </fieldset>
-</form>
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <form id="sign-up">
+      <fieldset>
+        <div class="input-group">
+          <span class="input-group-addon"  id="emailAddress"></span>
+          <input type="text" name="credentials[email]" class="form-control" placeholder="Email Address" aria-describedby="basic-addon1">
+          <span class="input-group-addon" id="passWord"></span>
+          <input type="password" name="credentials[password]" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
+          <span class="input-group-addon" id="basic-addon1"></span>
+          <input type="password" name="credentials[password_confirmation]" class="form-control" placeholder="Password Confirmation" aria-describedby="basic-addon1">
+        </div>
+          <input type="submit" name="submit" value="Sign up">
+      </fieldset>
+      </form>
+  </div>
+</div>
 
 </div>
 
@@ -285,17 +289,20 @@
 </div>
 
 <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-labelledby="Change Password">
-  <form id="change-password">
-    <fieldset>
-      <div class="input-group" id="limit">
-        <span class="input-group-addon"  id="old-password"></span>
-        <input type="password" name="passwords[old]" class="form-control" placeholder="Old Password" aria-describedby="basic-addon1">
-        <span class="input-group-addon" id="passWord"></span>
-        <input type="password" name="passwords[new]" class="form-control" placeholder="New Password" aria-describedby="basic-addon1">
+  <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <form id="change-password">
+          <fieldset>
+            <div class="input-group" id="limit">
+              <span class="input-group-addon"  id="old-password"></span>
+              <input type="password" name="passwords[old]" class="form-control" placeholder="Old Password" aria-describedby="basic-addon1">
+              <span class="input-group-addon" id="passWord"></span>
+              <input type="password" name="passwords[new]" class="form-control" placeholder="New Password" aria-describedby="basic-addon1">
+            </div>
+            <input type="submit" name="submit" value="Change Password">
+          </fieldset>
+        </form>
       </div>
-      <input type="submit" name="submit" value="Change Password">
-    </fieldset>
-  </form>
   </div>
 </div>
 
@@ -333,6 +340,24 @@
               </fieldset>
           </form>
       </div>
+  </div>
+</div>
+
+<div id="infoModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"></h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p id=infoModalText>Replace this text</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
   </div>
 </div>
 
