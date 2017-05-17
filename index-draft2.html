@@ -137,6 +137,7 @@
                     <div class="clearfix"></div>
                     <h2 class="section-heading">Create A Survey</h2>
                     <p class="lead">Design your own Survey.<br>Create a survey name and your own questions.  The answers to your questions must range from 1=low to 5=high</p>
+                    <a href="create-survey-modal" data-toggle="modal" data-target="#create-survey-modal" class="create-survey" id="create-survey">Click Here To Create Survey</a>
                 </div>
                 <div class="col-lg-5 col-sm-pull-6  col-sm-6">
                     <img class="img-responsive" src="img/questions.jpg" alt="">
@@ -211,30 +212,35 @@
 <!-- Modals -->
 
 <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="Sign Up">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <form class='sign-up' id="sign-up">
-                <fieldset>
-                    <input type="text" name="credentials[email]" id="sign-up-email" placeholder="Please add your e-mail here.">
-                    <input type="password" name="credentials[password]" id="sign-up-password" placeholder="Please add your password here.">
-                    <input type="password" name="credentials[password_confirmation]" id="sign-up-password-confirmation" placeholder="Please confirm your password here.">
-                    <input type="submit" id="sign-up-modal" name="submit" value="Sign Up">
-                </fieldset>
-            </form>
-        </div>
+  <form id="sign-up">
+  <fieldset>
+    <div class="input-group">
+      <span class="input-group-addon"  id="emailAddress"></span>
+      <input type="text" name="credentials[email]" class="form-control" placeholder="Email Address" aria-describedby="basic-addon1">
+      <span class="input-group-addon" id="passWord"></span>
+      <input type="password" name="credentials[password]" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
+      <span class="input-group-addon" id="basic-addon1"></span>
+      <input type="password" name="credentials[password_confirmation]" class="form-control" placeholder="Password Confirmation" aria-describedby="basic-addon1">
     </div>
+      <input type="submit" name="submit" value="Sign up">
+  </fieldset>
 </div>
 
 <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="Sign In">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <form class='sign-in' id="sign-in">
-                <fieldset>
-                    <input type="text" name="credentials[email]" id="sign-up-email" placeholder="Please add your e-mail here.">
-                    <input type="password" name="credentials[password]" id="sign-up-password" placeholder="Please add your password here.">
-                    <input type="submit" id="sign-in-modal" name="submit" value="Sign In">
-                </fieldset>
-            </form>
+          <form id="sign-in">
+          <fieldset>
+          <div class="input-group">
+            <span class="input-group-addon"  id="emailAddress"></span>
+            <input type="text" name="credentials[email]" class="form-control" placeholder="Email Address" aria-describedby="basic-addon1">
+            <span class="input-group-addon" id="passWord"></span>
+            <input type="password" name="credentials[password]" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
+          </div>
+            <input type="submit" name="submit" value="Sign In">
+          </fieldset>
+          <br>
+          </form>
         </div>
     </div>
 </div>
@@ -242,23 +248,40 @@
 <div class="modal fade" id="sign-out-modal" tabindex="-1" role="dialog" aria-labelledby="Sign Out">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <form class='sign-out' id="sign-out">
-              <fieldset>
-                <input type="submit" id="sign-out-modal" name="submit" value="Sign Out">
-              </fieldset>
-            </form>
+          <form id="sign-out">
+            <fieldset>
+            <input type="submit" name="submit" value="Sign Off">
+            </fieldset>
+          </form>
         </div>
     </div>
 </div>
 
 <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-labelledby="Change Password">
+  <form id="change-password">
+    <fieldset>
+      <div class="input-group" id="limit">
+        <span class="input-group-addon"  id="old-password"></span>
+        <input type="password" name="passwords[old]" class="form-control" placeholder="Old Password" aria-describedby="basic-addon1">
+        <span class="input-group-addon" id="passWord"></span>
+        <input type="password" name="passwords[new]" class="form-control" placeholder="New Password" aria-describedby="basic-addon1">
+      </div>
+      <input type="submit" name="submit" value="Change Password">
+    </fieldset>
+  </div>
+</div>
+
+<div class="modal fade" id="create-survey-modal" tabindex="-1" role="dialog" aria-labelledby="Create Survey">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <form class='change-password' id="change-password">
+            <form class='create-survey' id="create-survey">
               <fieldset>
-                <input type="password" name="passwords[old]" id="change-password-old" placeholder="old Password">
-                <input type="password" name="passwords[new]" id="change-password-new" placeholder="new Password">
-                <input type="submit" id="change-password-modal" name="submit" value="Change password!">
+                <span class="input-group-addon"  id="survey-name"></span>
+                <input type="text" name="surveySchema[name]" class="form-control" placeholder="Survey Name" aria-describedby="basic-addon1">
+                <input type="text" name="questionSchema[name]" class="form-control" placeholder="Question 1" aria-describedby="basic-addon1">
+                <input type="text" name="questionSchema[name]" class="form-control" placeholder="Question 2" aria-describedby="basic-addon1">
+                <input type="text" name="questionSchema[name]" class="form-control" placeholder="Question 3" aria-describedby="basic-addon1">
+                <input type="submit" id="create-survey-modal" name="submit" value="Create Survey">
               </fieldset>
           </form>
       </div>
