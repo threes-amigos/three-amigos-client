@@ -12,6 +12,18 @@ const onGetSurveys = () => {
       Authorization: 'Token token=' + store.user.token}
   })
 }
+const onGetSurveyQuestions = (data) => {
+  console.log('get Survey questions')
+  return $.ajax({
+    url: config.apiOrigin + '/questionsbysurvey',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token,
+      'Content-type': 'application/json'
+    },
+    data
+  })
+}
 
 const onCreateSurvey = (data) => {
   console.log('onCreateSurvey data: ', data)
@@ -44,19 +56,11 @@ const onUpdateSurvey = (data) => {
     data
   })
 }
-  // return $.ajax({
-  //   url: config.apiOrigin + '/surveys',
-  //   method: 'POST',
-  //   headers: {
-  //     'Authorization': 'Token token=' + store.user.token,
-  //     'Content-Type': 'application/json'
-  //   },
-  //   data
-  // })
 
 module.exports = {
   onGetSurveys,
   onCreateSurvey,
   onDeleteSurvey,
-  onUpdateSurvey
+  onUpdateSurvey,
+  onGetSurveyQuestions
 }
