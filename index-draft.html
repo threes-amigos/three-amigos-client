@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Hopes and Dreams</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags unless you know what you are doing -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags unless you know what you are doing -->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+  <!-- Load Facebook SDK for JavaScript -->
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+</head>
+
+<body class="container-fluid">
+  <div id="fb-root"></div>
+  <div class="background">
+    <h1>Hopes and Dreams</h1>
+    <p id="tagline">This is a list of whatever -- your hopes, your dreams, everything inbetween.</p>
+    <div class="user-info">
+      <!-- <h1>User Information</h1> -->
+      <div class="user-status">
+       <p>User Status</p>
+      </div>
+
+      <form class="sign-up first-display">
+        <fieldset>
+          <!-- <legend>Sign up!</legend> -->
+          <input class="auth-input" id="sign-up" type="text" name="credentials[email]" value="" placeholder="email">
+          <input class="auth-input" type="password" name="credentials[password]" value="" placeholder="password">
+          <input class="auth-input" type="password" name="credentials[password_confirmation]" value="" placeholder="password confirmation">
+          <input class="auth-btn" type="submit" name="submit" value="Sign up">
+        </fieldset>
+      </form><br/>
+
+      <form class="sign-in first-display">
+        <fieldset>
+          <!-- <legend>Sign in!</legend> -->
+          <input class="auth-input" id="sign-in" type="text" name="credentials[email]" value="" placeholder="email">
+          <input class="auth-input" type="password" name="credentials[password]" value="" placeholder="password">
+          <input class="auth-btn" type="submit" name="submit" value="Sign in">
+        </fieldset>
+      </form><br/>
+
+      <form class="sign-out logged-in-display hiding">
+        <fieldset>
+          <!-- <legend>Sign out!</legend> -->
+          <input class="auth-btn" type="submit" name="submit" value="Sign out">
+        </fieldset>
+      </form><br/>
+
+      <form class="change-password logged-in-display hiding">
+        <fieldset>
+          <!-- <legend>Change Password</legend> -->
+          <input class="auth-input" type="password" name="passwords[old]" value="" placeholder="Old Password">
+          <input class="auth-input" type="password" name="passwords[new]" value="" placeholder="New Password">
+          <input class="auth-btn" type="submit" name="submit" value="Change Password">
+        </fieldset>
+      </form><br/>
+    </div>
+
+    <!-- <div class="list-button-div">
+      <h1>Hopes and Dreams</h1>
+      <button id="showAllHnD" class="btn btn-default">Show All Your List of Hopes and Dreams</button><br> -->
+
+      <form id="addNewHnD" class="logged-in-display hiding">
+        <fieldset>
+          <legend>Add a New Hope or Dream</legend>
+            <div id="addEntryFailure"> </div>
+          <input class="entry-title-input" type="text" name="entry[title]" value="" placeholder="new title-required">
+          <input class="entry-backstory-input" type="text" name="entry[backstory]" value="" placeholder="backstory">
+          <input class="entry-stopper-input" type="text" name="entry[stopper]" value="" placeholder="stopper">
+          <input class="entry-status-input" type="text" name="entry[status]" value="" placeholder="status">
+          <input class="entry-id-btn" type="submit" name="submit" value="Add Entry">
+        </fieldset>
+      </form><br/>
+
+      <form id="updateOneHnD" class="logged-in-display hiding">
+        <fieldset>
+          <legend>Update A Particular Hope or Dream</legend>
+            <div id="updateEntryFailure"> </div>
+          <input class="entry-id-input" type="text" name="entry[id]" value="" placeholder="id no.-required">
+          <input class="entry-title-input" type="text" name="entry[title]" value="" placeholder="title">
+          <input class="entry-backstory-input" type="text" name="entry[backstory]" value="" placeholder="backstory">
+          <input class="entry-stopper-input" type="text" name="entry[stopper]" value="" placeholder="stopper">
+          <input class="entry-status-input" type="text" name="entry[status]" value="" placeholder="status">
+          <input class="entry-id-btn" type="submit" name="submit" value="Update Entry">
+        </fieldset>
+        <div class="special-note">(Id No. Must be One of Those in Entries Below)<br/>
+        (Warning: if there is text in the entry already and you leave an update field blank, the updated item field will be blank.)</div>
+      </form><br/>
+
+      <form id="deleteOneHnD" class="logged-in-display hiding">
+        <fieldset>
+          <legend>Delete A Particular Hope or Dream Forever</legend>
+            <div id="deleteEntryFailure"> </div>
+          <input class="entry-id-input" type="text" name="entry[id]" value="" placeholder="id no.-required">
+          <input class="entry-id-btn" type="submit" name="submit" value="Delete Entry Forever">
+        </fieldset>
+        <div class="special-note">(Id No. Must be One of Those in Entries Below)</div>
+      </form><br/>
+    </div>
+
+    <div id="content" class="content">
+    </div>
+  </div>
+  <!-- this is the facebook generated code, just for fun no analytics connected at this time -->
+  <div class="fb-like logged-in-display hiding"
+    data-href="https://lisamsmith100.github.io/hnd-client/"
+    data-layout="button_count"
+    data-action="like"
+    data-size="small"
+    data-show-faces="true"
+    data-share="true"></div>
+</body>
+
+</html>
