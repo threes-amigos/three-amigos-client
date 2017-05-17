@@ -18,9 +18,27 @@ const onCreateSurvey = function (event) {
     .then(ui.onCreateSurveySuccess)
     .catch(ui.onCreateSurveyFailure)
 }
+
+const onUpdateSurvey = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  api.onUpdateSurvey(data)
+    .then(ui.onUpdateSurveySuccess)
+    .catch(ui.onUpdateSurveyFailure)
+}
+const onDeleteSurvey = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  console.log('onDeleteSurvey data: ', data)
+  api.onDeleteSurvey(data)
+    .then(ui.onDeleteSurveySuccess)
+    .catch(ui.onDeleteSurveyFailure)
+}
 const addSurveyHandlers = () => {
   $('#create-survey').on('submit', onCreateSurvey)
   $('#get-surveys').on('submit', onGetSurveys)
+  $('#delete-survey').on('submit', onDeleteSurvey)
+  $('#update-survey').on('submit', onUpdateSurvey)
 }
 module.exports = {
   addSurveyHandlers
