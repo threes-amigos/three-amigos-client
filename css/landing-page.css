@@ -37,7 +37,8 @@ h6 {
     /*color: #067a6b;*/
     color: black;
     background: url(../img/pingpongballquestionmark.jpg) no-repeat center center;
-    background-size: cover;
+    /*background-size: cover;*/
+    background-size: contain;
     font-weight:600;
 }
 
