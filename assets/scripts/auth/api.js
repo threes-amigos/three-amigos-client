@@ -40,9 +40,31 @@ const signOut = (data) => {
   })
 }
 
+const onGetSurveys = () => {
+  // console.log('getUserHives Called')
+  return $.ajax({
+    url: config.apiOrigin + '/surveys',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token}
+  })
+}
+
+const onCreateSurvey = (data) => {
+  console.log('onCreateHive Called')
+  return $.ajax({
+    url: config.apiOrigin + '/surveys',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token},
+    data
+  })
+}
 module.exports = {
   signUp,
   signIn,
   signOut,
-  changePassword
+  changePassword,
+  onGetSurveys,
+  onCreateSurvey
 }
