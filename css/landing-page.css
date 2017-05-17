@@ -21,6 +21,10 @@ h6 {
     font-weight: 700;
 }
 
+h3 {
+  color: red;
+}
+
 .topnav {
     font-size: 14px;
 }
@@ -122,8 +126,8 @@ img {
 
 .banner {
     padding: 100px 0;
-    color: #f8f8f8;
-    background: url(../img/banner-bg.jpg) no-repeat center center;
+    color: black;
+    background: url(../img/questions-over-globe.jpg) no-repeat center center;
     background-size: cover;
 }
 
