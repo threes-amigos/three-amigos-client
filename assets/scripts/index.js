@@ -7,8 +7,10 @@ $(() => {
   setAPIOrigin(location, config)
 })
 const authEvents = require('./auth/events.js')
+const surveyEvents = require('./survey/events.js')
 $(() => {
   authEvents.addHandlers()
+  surveyEvents.addSurveyHandlers()
 })
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
