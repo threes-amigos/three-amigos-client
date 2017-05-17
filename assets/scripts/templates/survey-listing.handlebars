@@ -1,0 +1,12 @@
+
+<div class='survey-list' width='100%'>
+  {{#each surveys as |survey|}}
+  <div class='survey{{survey.id}} survey'>
+    <h1>{{survey.name}}<h1>
+    <a href='{{survey.url}}'>{{survey.name}}</a>
+    <input type='button' value='Delete' id='delete-{{survey.id}}'>
+    <input type='button' value='Update' id='update-{{survey.id}}'>
+  </div>
+  <hr>
+  {{/each}}
+</div>
