@@ -44,11 +44,25 @@ const onDeleteSurveyFailure = (error) => {
   console.log('Delete Surveys Failure')
   console.error(error)
 }
+const onUpdateSurveySuccess = () => {
+  // update the store with the vaild surveys
+  console.log('Update Survey success')
+  // update the store with the vaild surveys
+  api.onGetSurveys()
+    .then(getSurveysSuccess)
+    .catch(getSurveysFailure)
+}
+const onUpdateSurveyFailure = (error) => {
+  console.log('Update Surveys Failure')
+  console.error(error)
+}
 module.exports = {
   getSurveysSuccess,
   getSurveysFailure,
   onCreateSurveySuccess,
   onCreateSurveyFailure,
   onDeleteSurveySuccess,
-  onDeleteSurveyFailure
+  onDeleteSurveyFailure,
+  onUpdateSurveySuccess,
+  onUpdateSurveyFailure
 }
