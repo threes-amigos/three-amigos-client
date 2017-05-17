@@ -82,15 +82,18 @@
                         <h3>Create Your Own Survey</h3>
                         <hr class="intro-divider">
                         <ul class="list-inline intro-action-buttons">
-                            <li>
-                                <a href="#my-surveys" class="btn btn-default btn-lg"><i class="fa my-surveys fa-fw"></i> <span class="network-name">My Surveys</span></a>
-                            </li>
-                            <li>
-                                <a href="#create-survey" class="btn btn-default btn-lg"><i class="fa create-survey fa-fw"></i> <span class="network-name">Create A Survey</span></a>
-                            </li>
-                            <li>
-                                <a href="#survey-dashboard" class="btn btn-default btn-lg"><i class="fa survey-dashboard fa-fw"></i> <span class="network-name">My Dashboard</span></a>
-                            </li>
+                          <li>
+                            <a href="#my-surveys" class="btn btn-default btn-lg"><i class="fa my-surveys fa-fw"></i>My Surveys</a>
+                          </li>
+                          <li>
+                            <a href="#create-survey" class="btn btn-default btn-lg"><i class="fa create-survey fa-fw"></i>Create A Survey</a>
+                          </li>
+                          <li>
+                            <a href="#take-survey" class="btn btn-default btn-lg"><i class="fa take-survey fa-fw"></i>Take Survey</a>
+                          </li>
+                          <li>
+                              <a href="#survey-dashboard" class="btn btn-default btn-lg"><i class="fa survey-dashboard fa-fw"></i>My Dashboard</a>
+                          </li>
                         </ul>
                     </div>
                 </div>
@@ -104,7 +107,7 @@
 
     <!-- Page Content -->
 
-	<a  name="my-surveys" id="my-surveys"></a>
+	<a  name="my-surveys" id="my-surveys-content"></a>
     <div class="content-section-a">
 
         <div class="container">
@@ -113,7 +116,7 @@
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
                     <h2 class="section-heading">My Surveys</h2>
-                    <p class="lead">These are your surveys.
+                    <a href="content-my-surveys" data-target="#content-my-surveys" class="my-surveys" id="my-surveys">Click Here To List Your Surveys</a>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
                     <img class="img-responsive" src="img/survey-image.jpg" alt="">
@@ -149,8 +152,10 @@
         <!-- /.container -->
 
     </div>
+
+
     <!-- /.content-section-b -->
-<a  name="survey-dashboard" id="survey-dashboard"></a>
+<a  name="take-survey" id="take-survey"></a>
     <div class="content-section-a">
 
         <div class="container">
@@ -159,11 +164,11 @@
                 <div class="col-lg-5 col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">Survey Dashboard</h2>
-                    <p class="lead">You can see your average score per question.</p>
+                    <h2 class="section-heading">Take A Survey</h2>
+                      <a href="take-survey-modal" data-toggle="modal" data-target="#take-survey-modal" class="take-survey" id="take-survey">Click Here To Take Survey</a>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <img class="img-responsive" src="img/average.jpg" alt="">
+                    <img class="img-responsive" src="img/chann1surveyimg.jpg" alt="">
                 </div>
             </div>
 
@@ -171,6 +176,30 @@
         <!-- /.container -->
 
     </div>st
+
+    <a  name="survey-dashboard" id="survey-dashboard"></a>
+        <div class="content-section-b">
+
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+                        <hr class="section-heading-spacer">
+                        <div class="clearfix"></div>
+                        <h2 class="section-heading">Survey Dashboard</h2>
+                        <p class="lead">You can see your average score per question.</p>
+                    </div>
+                    <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+                        <img class="img-responsive" src="img/questions.jpg" alt="">
+                    </div>
+                    <div id="content-survey-dashboard" class="content-survey-dashboard">
+                </div>
+
+            </div>
+            <!-- /.container -->
+
+        </div>
+
 
     </div>
     <!-- /.banner --> -->
@@ -186,15 +215,15 @@
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>
-                            <a href="#about">About - README?</a>
+                            <a href="#github-express-repo" url="https://github.com/threes-amigos/three-amigos-express-api">Three Amigos Github Repo - Express</a>
+                        </li>
+                        <li>
+                            <a href="#github-mongodb-repo">Three Amigos Github Repo - MongoDB</a>
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
-                        <li>
-                            <a href="#services">Something here?</a>
-                        </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>
-                            <a href="#contact">Contact Three Amigos</a>
+                            <a href="#contact">Contact Three Amigos via Github</a>
                         </li>
                     </ul>
                     <p class="copyright text-muted small">Copyright &copy; Three Amigos 2017. All Rights Reserved</p>
@@ -250,7 +279,7 @@
         <div class="modal-content">
           <form id="sign-out">
             <fieldset>
-            <input type="submit" name="submit" value="Sign Off">
+            <input type="submit" name="submit" value="Sign Out">
             </fieldset>
           </form>
         </div>
@@ -268,6 +297,7 @@
       </div>
       <input type="submit" name="submit" value="Change Password">
     </fieldset>
+  </form>
   </div>
 </div>
 
@@ -282,6 +312,26 @@
                 <input type="text" name="questionSchema[name]" class="form-control" placeholder="Question 2" aria-describedby="basic-addon1">
                 <input type="text" name="questionSchema[name]" class="form-control" placeholder="Question 3" aria-describedby="basic-addon1">
                 <input type="submit" id="create-survey-modal" name="submit" value="Create Survey">
+              </fieldset>
+          </form>
+      </div>
+  </div>
+</div>
+
+<div class="modal fade" id="take-survey-modal" tabindex="-1" role="dialog" aria-labelledby="Take Survey">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <form class='take-survey' id="take-survey">
+              <fieldset>
+                <span class="input-group-addon"  id="survey-name"></span>
+                <div class="survey-name-modal">Survey Name:  Survey Name Goes Here</div>
+                <div class="question1-modal">1. Question 1 Goes Here</div>
+                <input type="text" id="question-answer-1" name="questionSchema[answer]" class="form-control" placeholder="Answer to Question 1" aria-describedby="basic-addon1">
+                <div class="question2 -modal">2. Question 2 Goes Here</div>
+                <input type="text" id="question-answer-2" name="questionSchema[answer]" class="form-control" placeholder="Answer to Question 2" aria-describedby="basic-addon1">
+                <div class="question3-modal">3. Question 3 Goes Here</div>
+                <input type="text" id="question-answer-3" name="questionSchema[answer]" class="form-control" placeholder="Answer to Question 3" aria-describedby="basic-addon1">
+                <input type="submit" id="create-survey-modal" name="submit" value="Submit Answers">
               </fieldset>
           </form>
       </div>
