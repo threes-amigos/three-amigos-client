@@ -55,6 +55,16 @@ const onCreateQuestion = (data) => {
     data
   })
 }
+const onDeleteQuestion = (data) => {
+  console.log('onDeleteQuestion data: ', data)
+  console.log('store.user.token ', store.user.token)
+  return $.ajax({
+    url: config.apiOrigin + '/questions/' + data.deleteId.id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token}
+  })
+}
   // return $.ajax({
   //   url: config.apiOrigin + '/surveys',
   //   method: 'POST',
@@ -70,5 +80,6 @@ module.exports = {
   onCreateSurvey,
   onDeleteSurvey,
   onUpdateSurvey,
-  onCreateQuestion
+  onCreateQuestion,
+  onDeleteQuestion
 }

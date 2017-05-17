@@ -65,6 +65,14 @@ const onCreateQuestionFailure = (error) => {
   console.log('create-survey Question Failure')
   console.error(error)
 }
+const onDeleteQuestionSuccess = () => {
+  console.log('Delete Question success')
+  // store.surveys = data.surveys
+}
+const onDeleteQuestionFailure = (error) => {
+  console.log('Delete Question Failure')
+  console.error(error)
+}
 module.exports = {
   getSurveysSuccess,
   getSurveysFailure,
@@ -75,5 +83,7 @@ module.exports = {
   onUpdateSurveySuccess,
   onUpdateSurveyFailure,
   onCreateQuestionSuccess,
-  onCreateQuestionFailure
+  onCreateQuestionFailure,
+  onDeleteQuestionSuccess,
+  onDeleteQuestionFailure
 }
