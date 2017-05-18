@@ -26,10 +26,8 @@ const getSurveysSuccess = (data) => {
   })
   const showSurveysHtml = showSurveysTemplate({ surveys: surveys })
   $('#content').html(showSurveysHtml)
-
-
   $('#userSurveys').empty()
-  const showSurveysHtml = showSurveysTemplate({ surveys: surveys })
+  // const showSurveysHtml = showSurveysTemplate({ surveys: surveys })
   $('#userSurveys').html(showSurveysHtml)
 
   console.log('this user surverys only: ', surveys)
@@ -46,6 +44,14 @@ const onCreateSurveySuccess = (data) => {
   $('body').removeClass('modal-open')
   $('.modal-backdrop').remove()
 
+  console.log('Data.name', data.survey.name)
+  store.name = data.survey.name
+  store.surveyID = data.survey.id
+  console.log(store.name)
+  $('#question-form-survey-name').html(store.name)
+  $('body').removeClass('modal-open')
+  $('.modal-backdrop').remove()
+  $('#create-questions-modal').modal('toggle')
   // store.surveys = data.surveys
 }
 const onCreateSurveyFailure = (error) => {

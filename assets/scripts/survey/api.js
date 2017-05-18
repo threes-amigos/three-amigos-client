@@ -25,15 +25,21 @@ const onGetSurveyQuestions = (data) => {
   })
 }
 
-const onCreateSurvey = (data) => {
-  console.log('onCreateSurvey data: ', data)
+const onCreateSurvey = (dataIn) => {
+  console.log('onCreateSurvey data: ', dataIn)
   console.log('store.user.token ', store.user.token)
   return $.ajax({
     url: config.apiOrigin + '/surveys',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token},
-    data
+    data:
+    {
+      'surveySchema': {
+        'name': dataIn,
+        'url': 'null'
+      }
+    }
   })
 }
 
@@ -56,17 +62,22 @@ const onUpdateSurvey = (data) => {
     data
   })
 }
-const onCreateQuestion = (data) => {
-  console.log('onCreateQuestion data: ', data)
-  console.log('store.user.token ', store.user.token)
+const onCreateQuestion = (question, questionNum, surveyID) => {
   return $.ajax({
     url: config.apiOrigin + '/questions',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token},
-    data
+    data: {
+      'question': {
+        'question': question,
+        'questionNumber': questionNum,
+        '_survey': surveyID
+      }
+    }
   })
 }
+// question, questionNum, surveyID
 const onDeleteQuestion = (data) => {
   console.log('onDeleteQuestion data: ', data)
   console.log('store.user.token ', store.user.token)
@@ -92,7 +103,7 @@ module.exports = {
   onCreateSurvey,
   onDeleteSurvey,
   onUpdateSurvey,
-  onGetSurveyQuestions
+  onGetSurveyQuestions,
   onCreateQuestion,
   onDeleteQuestion
 }
