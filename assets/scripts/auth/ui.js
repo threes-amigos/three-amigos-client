@@ -37,7 +37,7 @@ const signInSuccess = (data) => {
   console.log('Token: ', store.user.token)
   $('#sign-in-modal').toggle()
   // $('.first-display').addClass('hidden')
-  // $('.logged-in-display').removeClass('hidden')
+  $('.btn-default').show()
   $('.sign-in').hide()
   $('.sign-out').show()
   $('.change-password').show()
@@ -68,6 +68,7 @@ const signOutSuccess = () => {
   $('.sign-out').hide()
   $('.change-password').hide()
   $('.sign-up').show()
+  $('.btn-default').hide()
 }
 const signOutFailure = (error) => {
   $('body').removeClass('modal-open')
