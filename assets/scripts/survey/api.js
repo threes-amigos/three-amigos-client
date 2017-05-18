@@ -31,19 +31,19 @@ const onCreateSurvey = (dataIn) => {
   })
 }
 
-const onDeleteSurvey = (data) => {
-  console.log('onDeleteSurvey Called data:', data)
+const onDeleteSurvey = (id) => {
+  console.log('onDeleteSurvey Called data:', id)
   return $.ajax({
-    url: config.apiOrigin + '/surveys/' + data.deleteId.id,
+    url: config.apiOrigin + '/surveys/' + id,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token}
   })
 }
-const onUpdateSurvey = (data) => {
+const onUpdateSurvey = (data, id) => {
   console.log('onUpdateSurvey Called data:', data)
   return $.ajax({
-    url: config.apiOrigin + '/surveys/' + data.survey.id,
+    url: config.apiOrigin + '/surveys/' + id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token},

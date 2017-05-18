@@ -1,11 +1,10 @@
 
 <div class='survey-list' width='100%'>
   {{#each surveys as |survey|}}
-  <div class='survey{{survey.id}} survey'>
+  <div class='survey-{{survey.id}} survey'>
     <h1>{{survey.name}}<h1>
-    <a href=''>{{survey.name}}</a>
-    <input type='button' value='Delete' id='delete-{{survey.id}}'>
-    <input type='button' value='Update' id='update-{{survey.id}}'>
+    <input type='button' value='Delete' id='survey-delete-{{survey.id}}' class='delete-survey'>
+    <input type='button' value='Update' id='survey-update-{{survey.id}}' class='update-survey'>
   </div>
   <hr>
   {{/each}}

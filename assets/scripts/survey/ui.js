@@ -14,12 +14,41 @@ const getSurveysSuccess = (data) => {
       surveys.push(data.surveys[i])
     }
   }
+  $('#userSurveys').empty()
   const showSurveysHtml = showSurveysTemplate({ surveys: surveys })
-  $('#content').html(showSurveysHtml)
+  $('#userSurveys').html(showSurveysHtml)
   console.log('this user surverys only: ', surveys)
   // store.surveys = data.surveys
   store.surveys = surveys
+  // $(document).ready(function () {
+  //   $('.delete-survey').on('click', function () {
+  //     console.log('Delete Clicked')
+  //   })
+  // })
+  // when calling the code below from api for some reason
+  // the it was not getting called, hence the reason
+  // the code is not called from there
+  // Delete and refresh front end(via onDeleteSurveySuccess)
+  // Use the class and add handler.
+  $('.delete-survey').on('click', function (event) {
+    event.preventDefault()
+    // console.log('onDeleteSurvey: ', event)
+    console.log('target_id: ', event.target.id)
+    // the button id has the ID, parse it out
+    const data = event.target.id.split('-')
+    console.log('id: ', data[2])
+    api.onDeleteSurvey(data[2])
+      .then(onDeleteSurveySuccess)
+      .catch(onDeleteSurveyFailure)
+  })
+  $('.update-survey').on('click', onUserUpdateSurvey)
 }
+// const addSurveyDeleteEventHandlers = function (surveys) {
+//   surveys.forEach(function (item) {
+//     console.log('item id: ', item.id)
+//     $('#survey-delete-' + item.id).on('click', events.onDeleteSurvey)
+//   })
+// }
 const getSurveysFailure = (error) => {
   console.log('Get Surveys Failure')
   console.error(error)
@@ -80,6 +109,25 @@ const onDeleteQuestionSuccess = () => {
 const onDeleteQuestionFailure = (error) => {
   console.log('Delete Question Failure')
   console.error(error)
+}
+const onUserUpdateSurvey = (event) => {
+  console.log('onUserUpdateSurvey', event)
+  const data = event.target.id.split('-')
+  // let's store the ID. The Modal that handles update does
+  // not have the ID associated with the button
+  store.updateSurveyID = data[2]
+  const name = findSurveyNameByID(data[2])
+  console.log('survey current name: ' + name)
+  $('#current-survey-name').val(name)
+  $('#surveyUpdateModal').modal('show')
+}
+const findSurveyNameByID = function (id) {
+  for (let i = 0; i < store.surveys.length; i++) {
+    const item = store.surveys[i]
+    if (item.id === id) {
+      return item.name
+    }
+  }
 }
 module.exports = {
   getSurveysSuccess,
