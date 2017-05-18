@@ -3,7 +3,7 @@
   {{#each questions as |question|}}
   <div class='question{{question.id}} survey'>
     <ul>{{question.question}}<input type='text' id='questionInput{{question.id}}' value="1-5"></ul>
-    <input type='button' value='Submit' id='question-{{question.id}}' class='question-survey'>
+    <input type='button' value='Submit' id='question-{{question.id}}' class='question-survey-button'>
   {{/each}}
   </div>
 </div>

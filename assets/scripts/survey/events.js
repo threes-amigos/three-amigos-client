@@ -8,6 +8,7 @@ const store = require('../store.js')
 const onGetSurveys = function (event) {
   console.log('onGetSurveys called')
   event.preventDefault()
+
   api.onGetSurveys()
     .then(ui.getSurveysSuccess)
     .catch(ui.getSurveysFailure)

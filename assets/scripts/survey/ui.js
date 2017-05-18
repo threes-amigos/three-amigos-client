@@ -17,6 +17,10 @@ const getSurveysSuccess = (data) => {
       surveys.push(data.surveys[i])
     }
   }
+  const onQuestionSubmit = function (event) {
+    event.preventDefault()
+    console.log('submit question')
+  }
   // // console.log('data.surveys', surveys[3].id)
   // // const surveyData = {
   // //   'survey': {
@@ -34,7 +38,7 @@ const getSurveysSuccess = (data) => {
   $('#userSurveys').html(showSurveysHtml)
 
   $('.survey-dashboard-link').on('click', onSurveyDashboard)
-
+  $('.question-survey-button').on('click', onQuestionSubmit)
   console.log('this user surverys only: ', surveys)
   // store.surveys = data.surveys
   store.surveys = surveys
@@ -67,6 +71,9 @@ const getSurveysSuccess = (data) => {
   $('#allTakeSurveys').empty()
   $('#allTakeSurveys').html(showAllSurveys)
   $('#allTakeSurveys').show()
+  $('.take-survey').on('click', onUserTakeSurvey)
+  // adding even handler for the the take survey link
+  $('.survey-dashboard-link').on('click', onUserTakeSurvey)
   // const showSurveysHtml = showSurveysTemplate({ surveys: surveys })
 }
 
@@ -205,6 +212,7 @@ const onGetSurveyQuestionsSuccess = (data) => {
   const showQuestions = showQuestionsTemplate({ questions: data.questions })
   $('#takeSurvey').html(showQuestions)
   $('#surveyTakeModal').modal('show')
+
   // store.surveys = data.surveys
 }
 module.exports = {
