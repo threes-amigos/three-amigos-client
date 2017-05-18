@@ -41,6 +41,7 @@ const getSurveysSuccess = (data) => {
       .then(onDeleteSurveySuccess)
       .catch(onDeleteSurveyFailure)
   })
+  $('.update-survey').on('click', onUserUpdateSurvey)
 }
 // const addSurveyDeleteEventHandlers = function (surveys) {
 //   surveys.forEach(function (item) {
@@ -102,6 +103,14 @@ const onDeleteQuestionSuccess = () => {
 const onDeleteQuestionFailure = (error) => {
   console.log('Delete Question Failure')
   console.error(error)
+}
+const onUserUpdateSurvey = (event) => {
+  console.log('onUserUpdateSurvey', event)
+  const data = event.target.id.split('-')
+  // let's store the ID. The Modal that handles update does
+  // not have the ID associated with the button
+  store.updateSurveyID = data[2]
+  $('#surveyUpdateModal').modal('show')
 }
 module.exports = {
   getSurveysSuccess,

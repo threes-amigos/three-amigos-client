@@ -34,10 +34,10 @@ const onDeleteSurvey = (id) => {
       Authorization: 'Token token=' + store.user.token}
   })
 }
-const onUpdateSurvey = (data) => {
+const onUpdateSurvey = (data, id) => {
   console.log('onUpdateSurvey Called data:', data)
   return $.ajax({
-    url: config.apiOrigin + '/surveys/' + data.survey.id,
+    url: config.apiOrigin + '/surveys/' + id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token},
