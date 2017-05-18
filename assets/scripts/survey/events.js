@@ -34,11 +34,27 @@ const onDeleteSurvey = function (event) {
     .then(ui.onDeleteSurveySuccess)
     .catch(ui.onDeleteSurveyFailure)
 }
+const onCreateQuestion = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  api.onCreateQuestion(data)
+    .then(ui.onCreateQuestionSuccess)
+    .catch(ui.onCreateQuestionFailure)
+}
+const onDeleteQuestion = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  api.onDeleteQuestion(data)
+    .then(ui.onDeleteQuestionSuccess)
+    .catch(ui.onDeleteQuestionFailure)
+}
 const addSurveyHandlers = () => {
   $('#create-survey').on('submit', onCreateSurvey)
   $('#get-surveys').on('submit', onGetSurveys)
   $('#delete-survey').on('submit', onDeleteSurvey)
   $('#update-survey').on('submit', onUpdateSurvey)
+  $('#create-question').on('submit', onCreateQuestion)
+  $('#delete-question').on('submit', onDeleteQuestion)
 }
 module.exports = {
   addSurveyHandlers
