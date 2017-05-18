@@ -52,7 +52,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span> -->
                 </button>
-                <a class="navbar-brand topnav intro-message" href="#">Back to Top</a>
+                <a class="navbar-brand topnav intro-message" href="">Back to Top</a>
                 <!-- <a class="navbar-brand topnav create-survey" href="#">Create A Survey</a>
                 <a class="navbar-brand topnav survey-dashboard" href="#">My Survey Dashboard</a> -->
             </div>
@@ -92,16 +92,16 @@
                         <hr class="intro-divider">
                         <ul class="list-inline intro-action-buttons">
                           <li>
-                            <a href="#my-surveys" class="btn btn-default btn-lg"><i class="fa my-surveys fa-fw"></i>My Surveys</a>
+                            <a href="#my-surveys-content" class="btn btn-default btn-lg logged-in-display"><i class="fa my-surveys fa-fw"></i>My Surveys</a>
                           </li>
                           <li>
-                            <a href="#create-survey" class="btn btn-default btn-lg"><i class="fa create-survey fa-fw"></i>Create A Survey</a>
+                            <a href="#create-survey-href" class="btn btn-default btn-lg logged-in-display"><i class="fa create-survey fa-fw"></i>Create A Survey</a>
                           </li>
                           <li>
-                            <a href="#take-survey" class="btn btn-default btn-lg"><i class="fa take-survey fa-fw"></i>Take Survey</a>
+                            <a href="#take-survey-href" class="btn btn-default btn-lg logged-in-display"><i class="fa take-survey fa-fw"></i>Take Survey</a>
                           </li>
                           <li>
-                              <a href="#survey-dashboard" class="btn btn-default btn-lg"><i class="fa survey-dashboard fa-fw"></i>My Dashboard</a>
+                              <a href="#survey-dashboard-href" class="btn btn-default btn-lg logged-in-display"><i class="fa survey-dashboard fa-fw"></i>My Dashboard</a>
                           </li>
                         </ul>
                     </div>
@@ -116,49 +116,48 @@
 
     <!-- Page Content -->
 
-	<a name="my-surveys-content" id="my-surveys-content"></a>
-    <div class="content-section-a">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5 col-sm-6">
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">My Surveys</h2>
-                    <a href="content-my-surveys" data-target="#content-my-surveys" class="my-surveys" id="my-surveys">Click Here To List Your Surveys</a>
-                </div>
-                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <img class="img-responsive" src="img/survey-image.jpg" alt="">
-                </div>
-                <div id="content-my-surveys" class="content-my-surveys">
-            </div>
-        </div>
-        <!-- /.container -->
-    </div>
+<a name="my-surveys-content" id="my-surveys-content"></a>
+  <div class="content-section-a">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-5 col-sm-6">
+                  <hr class="section-heading-spacer">
+                  <div class="clearfix"></div>
+                  <h2 class="section-heading">My Surveys</h2>
+                  <a href="content-my-surveys" data-target="#content-my-surveys" class="my-surveys" id="my-surveys">Click Here To List Your Surveys</a>
+              </div>
+              <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                  <img class="img-responsive" src="img/survey-image.jpg" alt="">
+              </div>
+              <div id="content-my-surveys" class="content-my-surveys">
+          </div>
+      </div>
+      <!-- /.container -->
   </div>
+</div>
     <!-- /.content-section-a -->
-<a  name="create-survey" id="create-survey"></a>
-    <div class="content-section-b">
-
-        <div class="container">
-
-            <div class="row">
-                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">Create A Survey</h2>
-                    <p class="lead">Design your own Survey.<br>Create a survey name and your own questions.  The answers to your questions must range from 1=low to 5=high</p>
-                    <a href="create-survey" data-toggle="modal" data-target="#create-survey" class="create-survey" id="create-survey-href">Click Here To Create Survey</a>
-                </div>
-                <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-                    <img class="img-responsive" src="img/questions.jpg" alt="">
-                </div>
-                <div id="content-create-survey" class="content-create-survey">
-            </div>
+<a  name="create-survey-content" id="create-survey-content"></a>
+  <div class="content-section-b">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+            <hr class="section-heading-spacer">
+            <div class="clearfix"></div>
+            <h2 class="section-heading">Create A Survey</h2>
+            <p class="lead">Design your own Survey.<br>Create a survey name and your own questions.  The answers to your questions must range from 1=low to 5=high</p>
+            <a href="create-survey" data-toggle="modal" data-target="#create-survey" class="create-survey" id="create-survey-href">Click Here To Create Survey</a>
         </div>
-        <!-- /.container -->
+        <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+            <img class="img-responsive" src="img/questions.jpg" alt="">
+        </div>
+        <div id="content-create-survey" class="content-create-survey">
+      </div>
     </div>
+      <!-- /.container -->
+  </div>
+</div>
     <!-- /.content-section-b -->
-<a  name="take-survey" id="take-survey"></a>
+<a  name="take-survey-content" id="take-survey-content"></a>
     <div class="content-section-a">
 
         <div class="container">
@@ -178,27 +177,25 @@
         <!-- /.container -->
     </div>st
 
-    <a  name="survey-dashboard" id="survey-dashboard"></a>
-        <div class="content-section-b">
-
-            <div class="container">
-
-                <div class="row">
-                    <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
-                        <hr class="section-heading-spacer">
-                        <div class="clearfix"></div>
-                        <h2 class="section-heading">Survey Dashboard</h2>
-                        <p class="lead">You can see your average score per question.</p>
-                    </div>
-                    <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-                        <img class="img-responsive" src="img/questions.jpg" alt="">
-                    </div>
-                    <div id="content-survey-dashboard" class="content-survey-dashboard">
-                </div>
-            </div>
-            <!-- /.container -->
-        </div>
+<a  name="survey-dashboard-content" id="survey-dashboard"></a>
+  <div class="content-section-b">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+        <hr class="section-heading-spacer">
+        <div class="clearfix"></div>
+        <h2 class="section-heading">Survey Dashboard</h2>
+        <p class="lead">You can see your average score per question.</p>
+      </div>
+      <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+        <img class="img-responsive" src="img/average.jpg" alt="">
+      </div>
+      <div id="content-survey-dashboard" class="content-survey-dashboard">
+      </div>
     </div>
+      <!-- /.container -->
+    </div>
+  </div>
     <!-- /.banner --> -->
 
     <!-- Footer -->
@@ -212,18 +209,18 @@
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>
-                            <a href="#github-express-repo" url="https://github.com/threes-amigos/three-amigos-express-api">Three Amigos Github Repo - Express</a>
+                            <a href="https://github.com/threes-amigos/three-amigos-client">Three Amigos Github Repo - Express</a>
                         </li>
                         <li>
-                            <a href="#github-mongodb-repo">Three Amigos Github Repo - MongoDB</a>
+                            <a href="https://github.com/threes-amigos/three-amigos-express-api">Three Amigos Github Repo - MongoDB</a>
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li class="footer-menu-divider">&sdot;</li>
-                        <li>
+                        <!-- <li>
                             <a href="#contact">Contact Three Amigos via Github</a>
-                        </li>
+                        </li> -->
                     </ul>
-                    <p class="copyright text-muted small">Copyright &copy; Three Amigos 2017. All Rights Reserved</p>
+                    <p class="copyright text-muted small">Copyright &copy; Threes Amigos 2017. All Rights Reserved</p>
                 </div>
             </div>
         </div>

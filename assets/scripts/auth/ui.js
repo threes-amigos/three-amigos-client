@@ -10,10 +10,18 @@ const signUpSuccess = (data) => {
   $('body').removeClass('modal-open')
   $('.modal-backdrop').remove()
   showModalMessage('You have signed up.  Please sign in.')
+  // $('#sign-out-navbar').show()
+  // $('#change-password-navbar').show()
+  // $('#sign-up-navbar').hide()
+  // $('#sign-in-navbar').hide()
+  // $('.sign-in').addClass('hidden')
 }
 
 const signUpFailure = (error) => {
   $('#sign-up').trigger('reset')
+  $('#sign-up-modal').toggle()
+  $('body').removeClass('modal-open')
+  $('.modal-backdrop').remove()
   // $('#sign-up-modal').toggle()
   // $('body').removeClass('modal-open')
   // $('.modal-backdrop').remove()
@@ -28,6 +36,13 @@ const signInSuccess = (data) => {
   store.user = data.user
   console.log('Token: ', store.user.token)
   $('#sign-in-modal').toggle()
+  // $('.first-display').addClass('hidden')
+  // $('.logged-in-display').removeClass('hidden')
+  $('.sign-in').hide()
+  $('.sign-out').show()
+  $('.change-password').show()
+  $('.sign-up').hide()
+  // $('.change-password').removeClass('hidden')
   $('body').removeClass('modal-open')
   $('.modal-backdrop').remove()
   showModalMessage('You have signed in.  Survey Time!')
@@ -49,6 +64,10 @@ const signOutSuccess = () => {
   $('body').removeClass('modal-open')
   $('.modal-backdrop').remove()
   showModalMessage('You have signed out.  Bye!')
+  $('.sign-in').show()
+  $('.sign-out').hide()
+  $('.change-password').hide()
+  $('.sign-up').show()
 }
 const signOutFailure = (error) => {
   $('body').removeClass('modal-open')

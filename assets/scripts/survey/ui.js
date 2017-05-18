@@ -26,6 +26,8 @@ const getSurveysFailure = (error) => {
 }
 const onCreateSurveySuccess = (data) => {
   console.log('Create Survey success', data)
+  $('body').removeClass('modal-open')
+  $('.modal-backdrop').remove()
   // store.surveys = data.surveys
 }
 const onCreateSurveyFailure = (error) => {
