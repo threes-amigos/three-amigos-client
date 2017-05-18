@@ -12,6 +12,17 @@ const onGetSurveys = () => {
       Authorization: 'Token token=' + store.user.token}
   })
 }
+
+const onGetSingleSurvey = (id) => {
+  console.log('onGetSingleSurvey called')
+  return $.ajax({
+    url: config.apiOrigin + '/surveys/' + id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token}
+  })
+}
+
 const onGetSurveyQuestions = (data) => {
   console.log('get Survey questions')
   return $.ajax({
@@ -105,5 +116,6 @@ module.exports = {
   onUpdateSurvey,
   onGetSurveyQuestions,
   onCreateQuestion,
-  onDeleteQuestion
+  onDeleteQuestion,
+  onGetSingleSurvey
 }
