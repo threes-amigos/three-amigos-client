@@ -7,17 +7,12 @@ const config = require('../config')
 const store = require('../store')
 const showDashboardTemplate = require('../templates/survey-dashboard.handlebars')
 
-const showDashboardHtml = showDashboardTemplate({ surveys: data.surveys })
-  $('.content-survey-dashboard').html(showDashboardHtml)
-  // console.log('showEntries is a success')
-}
-
 const onSurveyDashboard = function (event) {
   console.log('onSurveyDashboard called')
   event.preventDefault()
   onSurveyDashboardAPICall()
-    .then(ui.surveyDashboardSuccess)
-    .catch(ui.surveyDashboardFailure)
+    .then(surveyDashboardSuccess)
+    .catch(surveyDashboardFailure)
 }
 
 const onSurveyDashboardAPICall = () => {
@@ -41,6 +36,22 @@ const onGetSurveyQuestions = (data) => {
     },
     data
   })
+}
+
+const surveyDashboardSuccess = (data) => {
+  // console.log('data is ', data)
+
+  data.questions.sort(function (a, b) {
+    return a.id - b.id
+  })
+  const showDashboardHtml = showDashboardTemplate({ surveys: data.surveys })
+  $('.content-survey-dashboard').html(showDashboardHtml)
+  // console.log('showEntries is a success')
+}
+
+const surveyDashboardFailure = (error) => {
+  // console.log('showEntries failed')
+  // console.error(error)
 }
 
 // content-survey-dashboard
