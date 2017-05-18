@@ -21,9 +21,9 @@ h6 {
     font-weight: 700;
 }
 
-h3 {
-  color: red;
-}
+/*h3 {
+  color: #e31a57;
+}*/
 
 .topnav {
     font-size: 14px;
@@ -179,3 +179,14 @@ footer {
 p.copyright {
     margin: 15px 0 0;
 }
+
+#userSurveys {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+
+/*
+.hidden {
+  pointer-events: none;
+}*/
