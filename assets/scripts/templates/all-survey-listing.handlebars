@@ -1,0 +1,9 @@
+
+<div class='survey-list' width='100%'>
+  {{#each surveys as |survey|}}
+  <div class='survey-{{survey.id}} survey'>
+    <h1><a href='#survey-dashboard' id="{{survey.id}}" class="survey-dashboard-link">{{survey.name}}</a></h1>
+  </div>
+  <hr>
+  {{/each}}
+</div>
