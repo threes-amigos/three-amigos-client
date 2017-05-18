@@ -3,7 +3,8 @@
 const getFormFields = require(`../../../lib/get-form-fields`)
 const api = require('./api')
 const ui = require('./ui')
-const store = require('../store')
+
+const store = require('../store.js')
 
 const onGetSurveys = function (event) {
   console.log('onGetSurveys called')
@@ -15,7 +16,8 @@ const onGetSurveys = function (event) {
 const onCreateSurvey = function (event) {
   event.preventDefault()
   console.log('create survey')
-  const data = getFormFields(event.target)
+  const data = $('#survey-create-input').val()
+  console.log('Data is: ', data)
   api.onCreateSurvey(data)
     .then(ui.onCreateSurveySuccess)
     .catch(ui.onCreateSurveyFailure)
@@ -41,9 +43,20 @@ const onDeleteSurvey = function (event) {
 const onCreateQuestion = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  api.onCreateQuestion(data)
+  const questionArray = []
+  console.log("Create questions form data: ", data.questionSchema)
+  for (const prop in data.questionSchema) {
+    questionArray.push(data.questionSchema[prop])
+  }
+  console.log(questionArray)
+  // api.onCreateQuestion()
+  questionArray.forEach((e, i, a) => {
+    const questionNum = i + 1
+    api.onCreateQuestion(e, questionNum, store.surveyID)
     .then(ui.onCreateQuestionSuccess)
     .catch(ui.onCreateQuestionFailure)
+  })
+  $('#create-questions-modal').modal('toggle')
 }
 const onDeleteQuestion = function (event) {
   event.preventDefault()
@@ -64,7 +77,7 @@ const addSurveyHandlers = () => {
   $('#get-surveys').on('submit', onGetSurveys)
   $('#delete-survey').on('submit', onDeleteSurvey)
   $('#update-survey').on('submit', onUpdateSurvey)
-  $('#create-question').on('submit', onCreateQuestion)
+  $('#create-questions-form').on('submit', onCreateQuestion)
   $('#delete-question').on('submit', onDeleteQuestion)
   $('#update-survey-form').on('submit', onUpdateSurveyModal)
 }

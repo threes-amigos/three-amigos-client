@@ -55,8 +55,14 @@ const getSurveysFailure = (error) => {
 }
 const onCreateSurveySuccess = (data) => {
   console.log('Create Survey success', data)
+  console.log('Data.name', data.survey.name)
+  store.name = data.survey.name
+  store.surveyID = data.survey.id
+  console.log(store.name)
+  $('#question-form-survey-name').html(store.name)
   $('body').removeClass('modal-open')
   $('.modal-backdrop').remove()
+  $('#create-questions-modal').modal('toggle')
   // store.surveys = data.surveys
 }
 const onCreateSurveyFailure = (error) => {
