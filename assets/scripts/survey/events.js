@@ -5,6 +5,8 @@ const api = require('./api')
 const ui = require('./ui')
 const store = require('../store.js')
 
+const store = require('../store.js')
+
 const onGetSurveys = function (event) {
   console.log('onGetSurveys called')
   event.preventDefault()
@@ -25,17 +27,19 @@ const onCreateSurvey = function (event) {
 const onUpdateSurvey = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  api.onUpdateSurvey(data)
+  api.onUpdateSurvey(data, store.updateSurveyID)
     .then(ui.onUpdateSurveySuccess)
     .catch(ui.onUpdateSurveyFailure)
 }
 const onDeleteSurvey = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
-  console.log('onDeleteSurvey data: ', data)
-  api.onDeleteSurvey(data)
-    .then(ui.onDeleteSurveySuccess)
-    .catch(ui.onDeleteSurveyFailure)
+  console.log('onDeleteSurvey: ', event)
+  console.log('target_id: ', event.target.id)
+  const data = event.target.id.split('-')
+  console.log('id: ', data[2])
+  api.onDeleteSurvey(data[2])
+   .then(ui.onDeleteSurveySuccess)
+   .catch(ui.onDeleteSurveyFailure)
 }
 const onCreateQuestion = function (event) {
   event.preventDefault()
@@ -62,6 +66,13 @@ const onDeleteQuestion = function (event) {
     .then(ui.onDeleteQuestionSuccess)
     .catch(ui.onDeleteQuestionFailure)
 }
+const onUpdateSurveyModal = function (event) {
+  event.preventDefault()
+  console.log('onUpdateSurveyModal event: ', event)
+  const data = getFormFields(event.target)
+  console.log('onUpdateSurveyModal data: ', data)
+  onUpdateSurvey(event)
+}
 const addSurveyHandlers = () => {
   $('#create-survey-form').on('submit', onCreateSurvey)
   $('#get-surveys').on('submit', onGetSurveys)
@@ -69,6 +80,7 @@ const addSurveyHandlers = () => {
   $('#update-survey').on('submit', onUpdateSurvey)
   $('#create-questions-form').on('submit', onCreateQuestion)
   $('#delete-question').on('submit', onDeleteQuestion)
+  $('#update-survey-form').on('submit', onUpdateSurveyModal)
 }
 module.exports = {
   addSurveyHandlers
