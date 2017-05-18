@@ -20,7 +20,34 @@ const getSurveysSuccess = (data) => {
   console.log('this user surverys only: ', surveys)
   // store.surveys = data.surveys
   store.surveys = surveys
+  // $(document).ready(function () {
+  //   $('.delete-survey').on('click', function () {
+  //     console.log('Delete Clicked')
+  //   })
+  // })
+  // when calling the code below from api for some reason
+  // the it was not getting called, hence the reason
+  // the code is not called from there
+  // Delete and refresh front end(via onDeleteSurveySuccess)
+  // Use the class and add handler.
+  $('.delete-survey').on('click', function (event) {
+    event.preventDefault()
+    // console.log('onDeleteSurvey: ', event)
+    console.log('target_id: ', event.target.id)
+    // the button id has the ID, parse it out
+    const data = event.target.id.split('-')
+    console.log('id: ', data[2])
+    api.onDeleteSurvey(data[2])
+      .then(onDeleteSurveySuccess)
+      .catch(onDeleteSurveyFailure)
+  })
 }
+// const addSurveyDeleteEventHandlers = function (surveys) {
+//   surveys.forEach(function (item) {
+//     console.log('item id: ', item.id)
+//     $('#survey-delete-' + item.id).on('click', events.onDeleteSurvey)
+//   })
+// }
 const getSurveysFailure = (error) => {
   console.log('Get Surveys Failure')
   console.error(error)

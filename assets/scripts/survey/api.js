@@ -25,10 +25,10 @@ const onCreateSurvey = (data) => {
   })
 }
 
-const onDeleteSurvey = (data) => {
-  console.log('onDeleteSurvey Called data:', data)
+const onDeleteSurvey = (id) => {
+  console.log('onDeleteSurvey Called data:', id)
   return $.ajax({
-    url: config.apiOrigin + '/surveys/' + data.deleteId.id,
+    url: config.apiOrigin + '/surveys/' + id,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token}

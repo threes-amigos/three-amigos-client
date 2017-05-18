@@ -29,11 +29,13 @@ const onUpdateSurvey = function (event) {
 }
 const onDeleteSurvey = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
-  console.log('onDeleteSurvey data: ', data)
-  api.onDeleteSurvey(data)
-    .then(ui.onDeleteSurveySuccess)
-    .catch(ui.onDeleteSurveyFailure)
+  console.log('onDeleteSurvey: ', event)
+  console.log('target_id: ', event.target.id)
+  const data = event.target.id.split('-')
+  console.log('id: ', data[2])
+  api.onDeleteSurvey(data[2])
+   .then(ui.onDeleteSurveySuccess)
+   .catch(ui.onDeleteSurveyFailure)
 }
 const onCreateQuestion = function (event) {
   event.preventDefault()
