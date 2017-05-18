@@ -39,7 +39,7 @@
 
 </head>
 <body>
-
+  <a id="top"></a>
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
         <div class="container topnav">
@@ -49,7 +49,7 @@
                     <span class="sr-only">Toggle navigation</span>
 
                 </button>
-                <a class="navbar-brand topnav intro-message" href="">Back to Top</a>
+                <a class="navbar-brand topnav intro-message" href="#top">Back to Top</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -149,7 +149,7 @@
 
               </div>
               <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                  <img class="img-responsive" src="img/survey-image.jpg" alt="">
+                  <img class="img-responsive" src="https://cloud.githubusercontent.com/assets/26127720/26209013/9c5121fe-3bb9-11e7-89d4-9d521b29108e.jpg" alt="">
               </div>
               <div id="content-my-surveys" class="survey-list">
           </div>
@@ -180,7 +180,7 @@
             <!-- <a href="create-survey" data-toggle="modal" data-target="#create-survey" class="create-survey" id="create-survey-href">Click Here To Create Survey</a> -->
         </div>
         <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-            <img class="img-responsive" src="img/questions.jpg" alt="">
+            <img class="img-responsive" src="https://cloud.githubusercontent.com/assets/26127720/26208995/878ab1fe-3bb9-11e7-8ed0-607e219691a9.jpg" alt="">
         </div>
         <div id="content-create-survey" class="content-create-survey">
       </div>
@@ -202,7 +202,7 @@
                       <a href="take-survey-modal" data-toggle="modal" data-target="#take-survey-modal" class="take-survey" id="take-survey">Click Here To Take Survey</a>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <img class="img-responsive" src="img/chann1surveyimg.jpg" alt="">
+                    <img class="img-responsive" src="https://cloud.githubusercontent.com/assets/26127720/26208822/0f30b03c-3bb9-11e7-9f59-5fe710170e61.jpg" alt="">
                 </div>
             </div>
         </div>
@@ -221,7 +221,7 @@
         <p class="lead dashboard-content"> </p>
       </div>
       <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-        <img class="img-responsive" src="img/average.jpg" alt="">
+        <img class="img-responsive" src="https://cloud.githubusercontent.com/assets/26127720/26208622/8a407bbe-3bb8-11e7-80ea-d9957bde9941.jpg" alt="">
       </div>
       <div id="content-survey-dashboard" class="content-survey-dashboard">
       </div>
@@ -386,82 +386,6 @@
     </div>
   </div>
 </div>
-<!-- Test Forms -->
-      <br>
-      <form id="delete-survey">
-      <fieldset>
-      <div class="input-group">
-        <span class="input-group-addon"  id="id-survey"></span>
-        <input type="text" name="deleteId[id]" class="form-control" placeholder="Survey ID" aria-describedby="basic-addon1">
-      </div>
-        <input type="submit" name="submit" value="Delete Survey">
-      </fieldset>
-      </form>
-       <br>
-
-       <form id="create-question">
-       <fieldset>
-       <div class="input-group">
-         <span class="input-group-addon"  id="name-question"></span>
-         <input type="text" name="question[question]" class="form-control" placeholder="Question" aria-describedby="basic-addon1">
-         <span class="input-group-addon" id="question-id"></span>
-         <input type="text" name="question[questionNumber]" class="form-control" placeholder="question Number" aria-describedby="basic-addon1">
-         <span class="input-group-addon" id="q-id-survey"></span>
-         <input type="text" name="question[_survey]" class="form-control" placeholder="Survey ID" aria-describedby="basic-addon1">
-       </div>
-         <input type="submit" name="submit" value="Create Question">
-       </fieldset>
-       <br>
-       </form>
-
-       <br>
-       <form id="delete-question">
-       <fieldset>
-       <div class="input-group">
-         <span class="input-group-addon"  id="id-question"></span>
-         <input type="text" name="deleteId[id]" class="form-control" placeholder="Survey ID" aria-describedby="basic-addon1">
-       </div>
-         <input type="submit" name="submit" value="Delete Question">
-       </fieldset>
-       </form>
-        <br>
-
-
-     <!-- Survey Update Modal -->
-       <div id="surveyUpdateModal" class="modal fade" role="dialog">
-         <div class="modal-dialog">
-           <!-- Modal content-->
-           <div class="modal-content">
-             <div class="modal-header">
-               <h4 class="modal-title">Update Survey Name</h4>
-               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                 <span aria-hidden="true">&times;</span>
-               </button>
-             </div>
-             <div class="modal-body">
-               <p id=infoModalText>Update Your Survey Name</p>
-               <p id=surveyNameRequired></p>
-               <form id="update-survey-form">
-               <fieldset>
-                 <div class="input-group">
-                   <div class="col-sm-10">
-                     <span class="input-group-addon"  id="hive-name"></span>
-                     <input type="text" name="survey[name]" id="current-survey-name" class="form-control" placeholder="Survey Name" aria-describedby="basic-addon1">
-                   </div>
-                 </div>
-                   <br>
-                   <input type="submit" name="submit" value="Update Survey">
-               </fieldset>
-               <br>
-               </form>
-
-             </div>
-             <div class="modal-footer">
-               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-             </div>
-           </div>
-         </div>
-       </div>
 
        <!-- Take Survey Modal -->
          <div id="surveyTakeModal" class="modal fade" role="dialog">
