@@ -5,8 +5,6 @@ const api = require('./api')
 const ui = require('./ui')
 const store = require('../store.js')
 
-const store = require('../store.js')
-
 const onGetSurveys = function (event) {
   console.log('onGetSurveys called')
   event.preventDefault()
