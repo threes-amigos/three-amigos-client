@@ -1,7 +1,8 @@
 'use strict'
 
 const store = require('../store')
-
+const surveysUI = require('../survey/ui.js')
+const surveysAPI = require('../survey/api.js')
 const signUpSuccess = (data) => {
   console.log('signUpSuccess called: ', data)
   // Clear the form data entered
@@ -45,6 +46,10 @@ const signInSuccess = (data) => {
   // $('.change-password').removeClass('hidden')
   $('body').removeClass('modal-open')
   $('.modal-backdrop').remove()
+  // get the user's surveys and display them
+  surveysAPI.onGetSurveys()
+    .then(surveysUI.getSurveysSuccess)
+    .catch(surveysUI.getSurveysFailure)
   showModalMessage('You have signed in.  Survey Time!')
 }
 
@@ -69,6 +74,8 @@ const signOutSuccess = () => {
   $('.change-password').hide()
   $('.sign-up').show()
   $('.btn-default').hide()
+  // don't show User's surveys
+  $('#userSurveys').empty()
 }
 const signOutFailure = (error) => {
   $('body').removeClass('modal-open')

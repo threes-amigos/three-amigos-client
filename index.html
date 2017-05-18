@@ -38,7 +38,6 @@
     <![endif]-->
 
 </head>
-
 <body>
 
     <!-- Navigation -->
@@ -48,13 +47,9 @@
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
-                    <!-- <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span> -->
+
                 </button>
                 <a class="navbar-brand topnav intro-message" href="">Back to Top</a>
-                <!-- <a class="navbar-brand topnav create-survey" href="#">Create A Survey</a>
-                <a class="navbar-brand topnav survey-dashboard" href="#">My Survey Dashboard</a> -->
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -77,13 +72,10 @@
         </div>
         <!-- /.container -->
     </nav>
-
-
     <!-- Header -->
     <a name="about"></a>
     <div class="intro-header">
         <div class="container">
-
             <div class="row">
                 <div class="col-lg-12">
                     <div class="intro-message">
@@ -95,13 +87,13 @@
                             <a href="#my-surveys-content" class="btn btn-default btn-lg logged-in-display"><i class="fa my-surveys fa-fw"></i>My Surveys</a>
                           </li>
                           <li>
-                            <a href="#create-survey-href" class="btn btn-default btn-lg logged-in-display"><i class="fa create-survey fa-fw"></i>Create A Survey</a>
+                            <a href="#create-survey-content" class="btn btn-default btn-lg logged-in-display"><i class="fa create-survey fa-fw"></i>Create A Survey</a>
                           </li>
                           <li>
-                            <a href="#take-survey-href" class="btn btn-default btn-lg logged-in-display"><i class="fa take-survey fa-fw"></i>Take Survey</a>
+                            <a href="#take-survey-content" class="btn btn-default btn-lg logged-in-display"><i class="fa take-survey fa-fw"></i>Take Survey</a>
                           </li>
                           <li>
-                              <a href="#survey-dashboard-href" class="btn btn-default btn-lg logged-in-display"><i class="fa survey-dashboard fa-fw"></i>My Dashboard</a>
+                              <a href="#survey-dashboard-content" class="btn btn-default btn-lg logged-in-display"><i class="fa survey-dashboard fa-fw"></i>My Dashboard</a>
                           </li>
                         </ul>
                     </div>
@@ -121,16 +113,25 @@
       <div class="container">
           <div class="row">
               <div class="col-lg-5 col-sm-6">
+
+                <hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+                <h2 class="section-heading">My Surveys</h2>
+                <div id="userSurveys" class="userSurveys"> </div>
                   <hr class="section-heading-spacer">
+                  <div id='content'>
+                  </div>
                   <div class="clearfix"></div>
-                  <h2 class="section-heading">My Surveys</h2>
-                  <!-- <a href="content-my-surveys" data-target="#content-my-surveys" class="my-surveys" id="my-surveys">Click Here To List Your Surveys</a> -->
+
+                  <!-- <h2 class="section-heading">My Surveys</h2>
+                  <a href="content-my-surveys" data-target="#content-my-surveys" class="my-surveys" id="my-surveys">Click Here To List Your Surveys</a>
                   <form id="get-surveys">
                     <fieldset>
                     <input type="submit" name="submit" value="Get Surveys">
                     </fieldset>
                   </form><br>
                   <form id="update-survey">
+                  </form>
                   <fieldset>
                   <div class="input-group">
                     <span class="input-group-addon"  id="name-survey"></span>
@@ -139,16 +140,13 @@
                     <input type="text" name="survey[id]" class="form-control" placeholder="Survey ID" aria-describedby="basic-addon1">
                   </div>
                     <input type="submit" name="submit" value="Update Survey">
-                  </fieldset>
-                  </form><br>
-                  <form id="delete-survey">
-                  <fieldset>
                   <div class="input-group">
                     <span class="input-group-addon"  id="survey-id"></span>
                     <input type="text" name="deleteId[id]" class="form-control" placeholder="Survey ID" aria-describedby="basic-addon1">
                   </div>
                     <input type="submit" name="submit" value="Delete Survey">
-                  </fieldset>
+                  </fieldset> -->
+
               </div>
               <div class="col-lg-5 col-lg-offset-2 col-sm-6">
                   <img class="img-responsive" src="img/survey-image.jpg" alt="">
@@ -169,16 +167,13 @@
             <div class="clearfix"></div>
             <h2 class="section-heading">Create A Survey</h2>
             <p class="lead">Design your own Survey.<br>Create a survey name and your own questions.  The answers to your questions must range from 1=low to 5=high</p>
-            <form id="create-survey">
+            <form id="create-survey-form">
             <fieldset>
             <div class="input-group">
               <span class="input-group-addon"  id="survey-name"></span>
-              <input type="text" name="surveySchema[name]" class="form-control" placeholder="Survey Name" aria-describedby="basic-addon1">
-              <!-- <span class="input-group-addon" id="survey-url"></span>
-              <input type="text" name="surveySchema[url]" class="form-control" placeholder="Survey URL" aria-describedby="basic-addon1"> -->
+              <input type="text" name="surveySchema[name]" id='survey-create-input' class="form-control" placeholder="Survey Name" aria-describedby="basic-addon1">
             </div>
-            <input type="submit" name="submit" value="Create Survey">
-            <input type="submit" name="submit" value="Cancel">
+            <input type="submit" name="submit"  value="Create Survey">
             </fieldset>
             <br>
             </form>
@@ -212,7 +207,7 @@
             </div>
         </div>
         <!-- /.container -->
-    </div>st
+    </div>
 
 <a  name="survey-dashboard-content" id="survey-dashboard"></a>
   <div class="content-section-b">
@@ -223,6 +218,7 @@
         <div class="clearfix"></div>
         <h2 class="section-heading">Survey Dashboard</h2>
         <p class="lead">You can see your average score per question.</p>
+        <p class="lead dashboard-content"> </p>
       </div>
       <div class="col-lg-5 col-sm-pull-6  col-sm-6">
         <img class="img-responsive" src="img/average.jpg" alt="">
@@ -233,8 +229,7 @@
       <!-- /.container -->
     </div>
   </div>
-    <!-- /.banner --> -->
-
+    <!-- /.banner -->
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -253,9 +248,6 @@
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li class="footer-menu-divider">&sdot;</li>
-                        <!-- <li>
-                            <a href="#contact">Contact Three Amigos via Github</a>
-                        </li> -->
                     </ul>
                     <p class="copyright text-muted small">Copyright &copy; Threes Amigos 2017. All Rights Reserved</p>
                 </div>
@@ -270,7 +262,7 @@
     <script src="js/bootstrap.min.js"></script>
 
 <!-- Modals -->
-
+<!-- Sign Up Modal -->
 <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="Sign Up">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -289,9 +281,8 @@
       </form>
   </div>
 </div>
-
 </div>
-
+<!-- Sign In Modal -->
 <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="Sign In">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -309,7 +300,7 @@
         </div>
     </div>
 </div>
-
+<!-- Sign Out Modal -->
 <div class="modal fade" id="sign-out-modal" tabindex="-1" role="dialog" aria-labelledby="Sign Out">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -321,7 +312,7 @@
         </div>
     </div>
 </div>
-
+<!-- Change Password Modal -->
 <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-labelledby="Change Password">
   <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
@@ -339,24 +330,25 @@
       </div>
   </div>
 </div>
-
-<div class="modal fade" id="create-survey-modal" tabindex="-1" role="dialog" aria-labelledby="Create Survey">
+<!-- Create Questions Modal -->
+<div class="modal fade" id="create-questions-modal" tabindex="-1" role="dialog" aria-labelledby="Create Survey">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <form class='create-survey-form' id="create-survey-form">
+            <form class='create-questions-form' id="create-questions-form">
               <fieldset>
                 <span class="input-group-addon"  id="survey-name"></span>
-                <input type="text" name="surveySchema[name]" class="form-control" placeholder="Survey Name" aria-describedby="basic-addon1">
-                <input type="text" name="questionSchema[name]" class="form-control" placeholder="Question 1" aria-describedby="basic-addon1">
-                <input type="text" name="questionSchema[name]" class="form-control" placeholder="Question 2" aria-describedby="basic-addon1">
-                <input type="text" name="questionSchema[name]" class="form-control" placeholder="Question 3" aria-describedby="basic-addon1">
+                <!-- <input type="text" name="surveySchema[name]" class="form-control" placeholder="Survey Name" aria-describedby="basic-addon1"> -->
+                <h1 id='question-form-survey-name'></h1>
+                <input type="text" name="questionSchema[name1]" class="form-control" placeholder="Question 1" aria-describedby="basic-addon1">
+                <input type="text" name="questionSchema[name2]" class="form-control" placeholder="Question 2" aria-describedby="basic-addon1">
+                <input type="text" name="questionSchema[name3]" class="form-control" placeholder="Question 3" aria-describedby="basic-addon1">
                 <input type="submit" id="create-survey-submit-modal" name="submit" value="Create Survey">
               </fieldset>
           </form>
       </div>
   </div>
 </div>
-
+<!-- Take Survey Modal -->
 <div class="modal fade" id="take-survey-modal" tabindex="-1" role="dialog" aria-labelledby="Take Survey">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -376,8 +368,25 @@
       </div>
   </div>
 </div>
-
-
+<!-- Info Modal -->
+<div id="infoModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"></h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p id=infoModalText>Replace this text</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Test Forms -->
       <br>
       <form id="delete-survey">
       <fieldset>
@@ -416,27 +425,77 @@
        </fieldset>
        </form>
         <br>
-     <div id='content'>
-     </div>
 
-<div id="infoModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title"></h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <p id=infoModalText>Replace this text</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
 
+     <!-- Survey Update Modal -->
+       <div id="surveyUpdateModal" class="modal fade" role="dialog">
+         <div class="modal-dialog">
+           <!-- Modal content-->
+           <div class="modal-content">
+             <div class="modal-header">
+               <h4 class="modal-title">Update Survey Name</h4>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+               </button>
+             </div>
+             <div class="modal-body">
+               <p id=infoModalText>Update Your Survey Name</p>
+               <p id=surveyNameRequired></p>
+               <form id="update-survey-form">
+               <fieldset>
+                 <div class="input-group">
+                   <div class="col-sm-10">
+                     <span class="input-group-addon"  id="hive-name"></span>
+                     <input type="text" name="survey[name]" id="current-survey-name" class="form-control" placeholder="Survey Name" aria-describedby="basic-addon1">
+                   </div>
+                 </div>
+                   <br>
+                   <input type="submit" name="submit" value="Update Survey">
+               </fieldset>
+               <br>
+               </form>
+
+             </div>
+             <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+             </div>
+           </div>
+         </div>
+       </div>
+
+       <!-- Take Survey Modal -->
+         <div id="surveyTakeModal" class="modal fade" role="dialog">
+           <div class="modal-dialog">
+             <!-- Modal content-->
+             <div class="modal-content">
+               <div class="modal-header">
+                 <h4 class="modal-title">Take Survey</h4>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+                 </button>
+               </div>
+               <div class="modal-body">
+                 <p id=infoModalText>Survey Name Goes Here</p>
+                 <p id=surveyNameRequired></p>
+                 <form id="do-survey-form">
+                 <fieldset>
+                   <div class="input-group">
+                     <div class="col-sm-10">
+                       <div id="takeSurvey" class="takeSurvey"> </div>
+                     </div>
+                   </div>
+                     <br>
+                     <input type="submit" name="submit" value="Sumbit Survey">
+                 </fieldset>
+                 <br>
+                 </form>
+
+               </div>
+               <div class="modal-footer">
+                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               </div>
+             </div>
+           </div>
+         </div>
 </body>
-
 </html>
