@@ -43,7 +43,7 @@ const onCreateQuestion = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   const questionArray = []
-  console.log("Create questions form data: ", data.questionSchema)
+  console.log('Create questions form data: ', data.questionSchema)
   for (const prop in data.questionSchema) {
     questionArray.push(data.questionSchema[prop])
   }
