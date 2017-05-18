@@ -76,6 +76,7 @@ const signOutSuccess = () => {
   $('.btn-default').hide()
   // don't show User's surveys
   $('#userSurveys').empty()
+  $('#allTakeSurveys').empty()
 }
 const signOutFailure = (error) => {
   $('body').removeClass('modal-open')

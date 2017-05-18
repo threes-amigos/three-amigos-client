@@ -5,6 +5,7 @@ const showSurveysTemplate = require('../templates/survey-listing.handlebars')
 const showQuestionsTemplate = require('../templates/survey-questions.handlebars')
 const api = require('./api')
 const showDashboardTemplate = require('../templates/survey-dashboard.handlebars')
+const showAllSurveysTemplate = require('../templates/all-survey-listing.handlebars')
 
 const getSurveysSuccess = (data) => {
   console.log('Get Surveys success', data)
@@ -37,6 +38,7 @@ const getSurveysSuccess = (data) => {
   console.log('this user surverys only: ', surveys)
   // store.surveys = data.surveys
   store.surveys = surveys
+  store.allSurveys = data.surveys
   // $(document).ready(function () {
   //   $('.delete-survey').on('click', function () {
   //     console.log('Delete Clicked')
@@ -60,6 +62,12 @@ const getSurveysSuccess = (data) => {
   })
   $('.update-survey').on('click', onUserUpdateSurvey)
   $('.take-survey').on('click', onUserTakeSurvey)
+  // show all surveys
+  const showAllSurveys = showAllSurveysTemplate({ surveys: store.allSurveys })
+  $('#allTakeSurveys').empty()
+  $('#allTakeSurveys').html(showAllSurveys)
+  $('#allTakeSurveys').show()
+  // const showSurveysHtml = showSurveysTemplate({ surveys: surveys })
 }
 
 const onSurveyDashboard = function () {
