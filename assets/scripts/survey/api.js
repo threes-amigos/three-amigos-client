@@ -14,7 +14,7 @@ const onGetSurveys = () => {
 }
 
 const onGetSingleSurvey = (id) => {
-  console.log('onGetSingleSurvey called')
+  console.log('onGetSingleSurvey API called')
   return $.ajax({
     url: config.apiOrigin + '/surveys/' + id,
     method: 'GET',
@@ -25,6 +25,7 @@ const onGetSingleSurvey = (id) => {
 
 const onGetSurveyQuestions = (data) => {
   console.log('get Survey questions')
+  console.log('data passed to API is ', data)
   return $.ajax({
     url: config.apiOrigin + '/questionsbysurvey',
     method: 'GET',

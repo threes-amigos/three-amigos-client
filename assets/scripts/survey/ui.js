@@ -41,16 +41,25 @@ const getSurveysSuccess = (data) => {
 const onSurveyDashboard = function () {
   store.dashboardID = $(this).attr('id')
   console.log('onSurveyDashboard id ', store.dashboardID)
-  api.onGetSurveyQuestions(store.dashboardID)
+  const surveyData = {
+    'survey': {
+      'id': store.dashboardID
+    }
+  }
+  console.log('surveyData is ', surveyData)
+  api.onGetSurveyQuestions(surveyData)
     .then((questionsData) => {
       console.log('onGetSurveyQuestions databack is ', questionsData)
+      return questionsData
     })
-  api.onGetSingleSurvey(store.dashboardID)
-    .then((databack) => {
-      console.log('databack is ', databack)
-      const showDashboardHtml = showDashboardTemplate({ survey: databack.survey })
-      console.log('databack name is ', databack.survey.name)
-      $('.dashboard-content').html(showDashboardHtml)
+    .then((questionsData) => {
+      api.onGetSingleSurvey(store.dashboardID)
+        .then((databack) => {
+          console.log('databack is ', databack)
+          const showDashboardHtml = showDashboardTemplate({ survey: databack.survey, questions: questionsData.questions })
+          console.log('databack name is ', databack.survey.name)
+          $('.dashboard-content').html(showDashboardHtml)
+        })
     })
 }
 
