@@ -13,6 +13,30 @@ const onGetSurveys = () => {
   })
 }
 
+const onGetSingleSurvey = (id) => {
+  console.log('onGetSingleSurvey API called')
+  return $.ajax({
+    url: config.apiOrigin + '/surveys/' + id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token}
+  })
+}
+
+const onGetSurveyQuestions = (data) => {
+  console.log('get Survey questions')
+  console.log('data passed to API is ', data)
+  return $.ajax({
+    url: config.apiOrigin + '/questionsbysurvey',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token,
+      'Content-type': 'application/json'
+    },
+    data
+  })
+}
+
 const onCreateSurvey = (dataIn) => {
   console.log('onCreateSurvey data: ', dataIn)
   console.log('store.user.token ', store.user.token)
@@ -103,7 +127,9 @@ module.exports = {
   onCreateSurvey,
   onDeleteSurvey,
   onUpdateSurvey,
+  onGetSurveyQuestions,
   onCreateQuestion,
   onDeleteQuestion,
-  onGetSurveyQuestions
+  onGetSurveyQuestions,
+  onGetSingleSurvey
 }
