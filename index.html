@@ -124,12 +124,36 @@
                   <hr class="section-heading-spacer">
                   <div class="clearfix"></div>
                   <h2 class="section-heading">My Surveys</h2>
-                  <a href="content-my-surveys" data-target="#content-my-surveys" class="my-surveys" id="my-surveys">Click Here To List Your Surveys</a>
+                  <!-- <a href="content-my-surveys" data-target="#content-my-surveys" class="my-surveys" id="my-surveys">Click Here To List Your Surveys</a> -->
+                  <form id="get-surveys">
+                    <fieldset>
+                    <input type="submit" name="submit" value="Get Surveys">
+                    </fieldset>
+                  </form><br>
+                  <form id="update-survey">
+                  <fieldset>
+                  <div class="input-group">
+                    <span class="input-group-addon"  id="name-survey"></span>
+                    <input type="text" name="survey[name]" class="form-control" placeholder="Survey Name" aria-describedby="basic-addon1">
+                    <span class="input-group-addon" id="survey-id"></span>
+                    <input type="text" name="survey[id]" class="form-control" placeholder="Survey ID" aria-describedby="basic-addon1">
+                  </div>
+                    <input type="submit" name="submit" value="Update Survey">
+                  </fieldset>
+                  </form><br>
+                  <form id="delete-survey">
+                  <fieldset>
+                  <div class="input-group">
+                    <span class="input-group-addon"  id="survey-id"></span>
+                    <input type="text" name="deleteId[id]" class="form-control" placeholder="Survey ID" aria-describedby="basic-addon1">
+                  </div>
+                    <input type="submit" name="submit" value="Delete Survey">
+                  </fieldset>
               </div>
               <div class="col-lg-5 col-lg-offset-2 col-sm-6">
                   <img class="img-responsive" src="img/survey-image.jpg" alt="">
               </div>
-              <div id="content-my-surveys" class="content-my-surveys">
+              <div id="content-my-surveys" class="survey-list">
           </div>
       </div>
       <!-- /.container -->
@@ -145,7 +169,20 @@
             <div class="clearfix"></div>
             <h2 class="section-heading">Create A Survey</h2>
             <p class="lead">Design your own Survey.<br>Create a survey name and your own questions.  The answers to your questions must range from 1=low to 5=high</p>
-            <a href="create-survey" data-toggle="modal" data-target="#create-survey" class="create-survey" id="create-survey-href">Click Here To Create Survey</a>
+            <form id="create-survey">
+            <fieldset>
+            <div class="input-group">
+              <span class="input-group-addon"  id="survey-name"></span>
+              <input type="text" name="surveySchema[name]" class="form-control" placeholder="Survey Name" aria-describedby="basic-addon1">
+              <!-- <span class="input-group-addon" id="survey-url"></span>
+              <input type="text" name="surveySchema[url]" class="form-control" placeholder="Survey URL" aria-describedby="basic-addon1"> -->
+            </div>
+            <input type="submit" name="submit" value="Create Survey">
+            <input type="submit" name="submit" value="Cancel">
+            </fieldset>
+            <br>
+            </form>
+            <!-- <a href="create-survey" data-toggle="modal" data-target="#create-survey" class="create-survey" id="create-survey-href">Click Here To Create Survey</a> -->
         </div>
         <div class="col-lg-5 col-sm-pull-6  col-sm-6">
             <img class="img-responsive" src="img/questions.jpg" alt="">
