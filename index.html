@@ -138,6 +138,8 @@
                   </div>
                     <input type="submit" name="submit" value="Delete Survey">
                   </fieldset>
+                  <div id='content'>
+                  </div>
               </div>
               <div class="col-lg-5 col-lg-offset-2 col-sm-6">
                   <img class="img-responsive" src="img/survey-image.jpg" alt="">
@@ -162,9 +164,9 @@
             <fieldset>
             <div class="input-group">
               <span class="input-group-addon"  id="survey-name"></span>
-              <input type="text" name="surveySchema[name]" class="form-control" placeholder="Survey Name" aria-describedby="basic-addon1">
+              <input type="text" name="surveySchema[name]" id='survey-create-input' class="form-control" placeholder="Survey Name" aria-describedby="basic-addon1">
             </div>
-            <input type="submit" name="submit" value="Create Survey">
+            <input type="submit" name="submit"  value="Create Survey">
             </fieldset>
             <br>
             </form>
@@ -327,10 +329,11 @@
             <form class='create-questions-form' id="create-questions-form">
               <fieldset>
                 <span class="input-group-addon"  id="survey-name"></span>
-                <input type="text" name="surveySchema[name]" class="form-control" placeholder="Survey Name" aria-describedby="basic-addon1">
-                <input type="text" name="questionSchema[name]" class="form-control" placeholder="Question 1" aria-describedby="basic-addon1">
-                <input type="text" name="questionSchema[name]" class="form-control" placeholder="Question 2" aria-describedby="basic-addon1">
-                <input type="text" name="questionSchema[name]" class="form-control" placeholder="Question 3" aria-describedby="basic-addon1">
+                <!-- <input type="text" name="surveySchema[name]" class="form-control" placeholder="Survey Name" aria-describedby="basic-addon1"> -->
+                <h1 id='question-form-survey-name'></h1>
+                <input type="text" name="questionSchema[name1]" class="form-control" placeholder="Question 1" aria-describedby="basic-addon1">
+                <input type="text" name="questionSchema[name2]" class="form-control" placeholder="Question 2" aria-describedby="basic-addon1">
+                <input type="text" name="questionSchema[name3]" class="form-control" placeholder="Question 3" aria-describedby="basic-addon1">
                 <input type="submit" id="create-survey-submit-modal" name="submit" value="Create Survey">
               </fieldset>
           </form>
@@ -414,8 +417,7 @@
        </fieldset>
        </form>
         <br>
-     <div id='content'>
-     </div>
+
 
 </body>
 
