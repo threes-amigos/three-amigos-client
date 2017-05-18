@@ -130,6 +130,5 @@ module.exports = {
   onGetSurveyQuestions,
   onCreateQuestion,
   onDeleteQuestion,
-  onGetSurveyQuestions,
   onGetSingleSurvey
 }
