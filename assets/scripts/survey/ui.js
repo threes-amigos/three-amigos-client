@@ -2,6 +2,7 @@
 
 const store = require('../store')
 const showSurveysTemplate = require('../templates/survey-listing.handlebars')
+const showQuestionsTemplate = require('../templates/survey-questions.handlebars')
 const api = require('./api')
 
 const getSurveysSuccess = (data) => {
@@ -42,6 +43,7 @@ const getSurveysSuccess = (data) => {
       .catch(onDeleteSurveyFailure)
   })
   $('.update-survey').on('click', onUserUpdateSurvey)
+  $('.take-survey').on('click', onUserTakeSurvey)
 }
 // const addSurveyDeleteEventHandlers = function (surveys) {
 //   surveys.forEach(function (item) {
@@ -128,6 +130,33 @@ const findSurveyNameByID = function (id) {
       return item.name
     }
   }
+}
+const onUserTakeSurvey = function (event) {
+  console.log('onUserTakeSurvey called')
+  const data = event.target.id.split('-')
+  console.log('Survey id: ', data[2])
+  const surveyID = {
+    'survey': {
+      'id': data[2]
+    }
+  }
+  console.log('Survey id: ', data[2])
+  console.log('Survey data: ', surveyID)
+  api.onGetSurveyQuestions(surveyID)
+  .then(onGetSurveyQuestionsSuccess)
+  .catch(onGetSurveyQuestionsFailure)
+}
+const onGetSurveyQuestionsFailure = (error) => {
+  console.log('onGetSurveyQuestionsFailure Failure')
+  console.error(error)
+}
+const onGetSurveyQuestionsSuccess = (data) => {
+  console.log('onGetSurveyQuestionsSuccess success', data)
+  $('#takeSurvey').empty()
+  const showQuestions = showQuestionsTemplate({ questions: data.questions })
+  $('#takeSurvey').html(showQuestions)
+  $('#surveyTakeModal').modal('show')
+  // store.surveys = data.surveys
 }
 module.exports = {
   getSurveysSuccess,
