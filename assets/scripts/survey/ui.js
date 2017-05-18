@@ -3,6 +3,7 @@
 const store = require('../store')
 const showSurveysTemplate = require('../templates/survey-listing.handlebars')
 const api = require('./api')
+const showDashboardTemplate = require('../templates/survey-dashboard.handlebars')
 
 const getSurveysSuccess = (data) => {
   console.log('Get Surveys success', data)
@@ -14,21 +15,72 @@ const getSurveysSuccess = (data) => {
       surveys.push(data.surveys[i])
     }
   }
-  $('#userSurveys').empty()
+  // // console.log('data.surveys', surveys[3].id)
+  // // const surveyData = {
+  // //   'survey': {
+  // //     'id': surveys[3].id
+  // //   }
+  // // }
+  // api.onGetSurveyQuestions(surveyData)
+  // .then((databack) => {
+  //   console.log('here is the databack: ', databack)
+  // })
   const showSurveysHtml = showSurveysTemplate({ surveys: surveys })
+  $('#content').html(showSurveysHtml)
+  $('#userSurveys').empty()
+  // const showSurveysHtml = showSurveysTemplate({ surveys: surveys })
   $('#userSurveys').html(showSurveysHtml)
+
+  $('.survey-dashboard-link').on('click', onSurveyDashboard)
+
   console.log('this user surverys only: ', surveys)
   // store.surveys = data.surveys
   store.surveys = surveys
 }
+
+const onSurveyDashboard = function () {
+  store.dashboardID = $(this).attr('id')
+  console.log('onSurveyDashboard id ', store.dashboardID)
+  const surveyData = {
+    'survey': {
+      'id': store.dashboardID
+    }
+  }
+  console.log('surveyData is ', surveyData)
+  api.onGetSurveyQuestions(surveyData)
+    .then((questionsData) => {
+      console.log('onGetSurveyQuestions databack is ', questionsData)
+      return questionsData
+    })
+    .then((questionsData) => {
+      api.onGetSingleSurvey(store.dashboardID)
+        .then((databack) => {
+          console.log('databack is ', databack)
+          const showDashboardHtml = showDashboardTemplate({ survey: databack.survey, questions: questionsData.questions })
+          console.log('databack name is ', databack.survey.name)
+          $('.dashboard-content').html(showDashboardHtml)
+        })
+    })
+}
+
 const getSurveysFailure = (error) => {
   console.log('Get Surveys Failure')
   console.error(error)
 }
 const onCreateSurveySuccess = (data) => {
   console.log('Create Survey success', data)
+  $('.create-survey-modal').modal('toggle')
   $('body').removeClass('modal-open')
   $('.modal-backdrop').remove()
+
+  console.log('Data.name', data.survey.name)
+  store.name = data.survey.name
+  store.surveyID = data.survey.id
+  console.log(store.name)
+  $('#question-form-survey-name').html(store.name)
+  $('body').removeClass('modal-open')
+  $('.modal-backdrop').remove()
+  $('#create-questions-modal').modal('toggle')
   // store.surveys = data.surveys
 }
 const onCreateSurveyFailure = (error) => {
