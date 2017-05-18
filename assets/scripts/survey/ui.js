@@ -14,8 +14,9 @@ const getSurveysSuccess = (data) => {
       surveys.push(data.surveys[i])
     }
   }
+  $('#userSurveys').empty()
   const showSurveysHtml = showSurveysTemplate({ surveys: surveys })
-  $('#content').html(showSurveysHtml)
+  $('#userSurveys').html(showSurveysHtml)
   console.log('this user surverys only: ', surveys)
   // store.surveys = data.surveys
   store.surveys = surveys
