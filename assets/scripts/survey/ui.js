@@ -110,7 +110,18 @@ const onUserUpdateSurvey = (event) => {
   // let's store the ID. The Modal that handles update does
   // not have the ID associated with the button
   store.updateSurveyID = data[2]
+  const name = findSurveyNameByID(data[2])
+  console.log('survey current name: ' + name)
+  $('#current-survey-name').val(name)
   $('#surveyUpdateModal').modal('show')
+}
+const findSurveyNameByID = function (id) {
+  for (let i = 0; i < store.surveys.length; i++) {
+    const item = store.surveys[i]
+    if (item.id === id) {
+      return item.name
+    }
+  }
 }
 module.exports = {
   getSurveysSuccess,
