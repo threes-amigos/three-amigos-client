@@ -14,9 +14,24 @@ const getSurveysSuccess = (data) => {
       surveys.push(data.surveys[i])
     }
   }
+  console.log('data.surveys', surveys[3].id)
+  const surveyData = {
+    'survey': {
+      'id': surveys[3].id
+    }
+  }
+  api.onGetSurveyQuestions(surveyData)
+  .then((databack) => {
+    console.log('here is the databack: ', databack)
+  })
+  const showSurveysHtml = showSurveysTemplate({ surveys: surveys })
+  $('#content').html(showSurveysHtml)
+
+
   $('#userSurveys').empty()
   const showSurveysHtml = showSurveysTemplate({ surveys: surveys })
   $('#userSurveys').html(showSurveysHtml)
+
   console.log('this user surverys only: ', surveys)
   // store.surveys = data.surveys
   store.surveys = surveys
@@ -27,8 +42,10 @@ const getSurveysFailure = (error) => {
 }
 const onCreateSurveySuccess = (data) => {
   console.log('Create Survey success', data)
+  $('.create-survey-modal').modal('toggle')
   $('body').removeClass('modal-open')
   $('.modal-backdrop').remove()
+
   // store.surveys = data.surveys
 }
 const onCreateSurveyFailure = (error) => {

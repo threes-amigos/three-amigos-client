@@ -5,6 +5,10 @@
     <h1>{{survey.name}}<h1>
     <input type='button' value='Delete' id='delete-{{survey.id}}'>
     <input type='button' value='Update' id='update-{{survey.id}}'>
+    {{#each questions as |question|}}
+    <div class='question{{question.id}} survey'>
+      <ul>{{question.question}}<input type='text' id='questionInput{{question.id}}' value="1-5"></ul>
+    {{/each}}
   </div>
   <hr>
   {{/each}}
