@@ -102,6 +102,16 @@ const onDeleteQuestion = (data) => {
       Authorization: 'Token token=' + store.user.token}
   })
 }
+const onUpdateQuestion = (data, id) => {
+  console.log('onUpdateQuestion Called data:', data)
+  return $.ajax({
+    url: config.apiOrigin + '/questions/' + id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token},
+    data
+  })
+}
 // const onGetSurveyQuestions = (data) => {
 //   console.log('get Survey questions')
 //   return $.ajax({
@@ -132,5 +142,6 @@ module.exports = {
   onGetSurveyQuestions,
   onCreateQuestion,
   onDeleteQuestion,
-  onGetSingleSurvey
+  onGetSingleSurvey,
+  onUpdateQuestion
 }
