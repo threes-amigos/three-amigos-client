@@ -1,8 +1,8 @@
 <h1 id="survey-name-dashboard"><h2><data-id="{{survey.id}}">{{survey.name}}</h1>
 
 {{#each questions as |question|}}
-   <ul id="question-{{question.id}}">Question is {{question.question}}
-     <li>Total Answers are {{question.numberOfTimesAnswered}}
-     <li>Average Score for this question is {{question.avgScore}}
+   <ul class="question-dashboard-header" id="question-{{question.id}}">{{question.question}}<br/>
+     <li class="question-stat">Total Answers are {{question.numberOfTimesAnswered}}<br/>
+     <li class="question-stat">Average Score for this question is {{question.avgScore}}
  </ul>
 {{/each}}

@@ -17,6 +17,10 @@ const getSurveysSuccess = (data) => {
       surveys.push(data.surveys[i])
     }
   }
+  const onQuestionSubmit = function (event) {
+    event.preventDefault()
+    console.log('submit question')
+  }
   // // console.log('data.surveys', surveys[3].id)
   // // const surveyData = {
   // //   'survey': {
@@ -34,7 +38,7 @@ const getSurveysSuccess = (data) => {
   $('#userSurveys').html(showSurveysHtml)
 
   $('.survey-dashboard-link').on('click', onSurveyDashboard)
-
+  $('.question-survey-button').on('click', onQuestionSubmit)
   console.log('this user surverys only: ', surveys)
   // store.surveys = data.surveys
   store.surveys = surveys
@@ -67,6 +71,9 @@ const getSurveysSuccess = (data) => {
   $('#allTakeSurveys').empty()
   $('#allTakeSurveys').html(showAllSurveys)
   $('#allTakeSurveys').show()
+  $('.take-survey').on('click', onUserTakeSurvey)
+  // adding even handler for the the take survey link
+  $('.survey-dashboard-link').on('click', onUserTakeSurvey)
   // const showSurveysHtml = showSurveysTemplate({ surveys: surveys })
 }
 
@@ -115,6 +122,9 @@ const onCreateSurveySuccess = (data) => {
   $('.modal-backdrop').remove()
   $('#create-questions-modal').modal('toggle')
   // store.surveys = data.surveys
+  api.onGetSurveys()
+    .then(getSurveysSuccess)
+    .catch(getSurveysFailure)
 }
 const onCreateSurveyFailure = (error) => {
   console.log('Get Surveys Failure')
@@ -202,10 +212,45 @@ const onGetSurveyQuestionsFailure = (error) => {
 const onGetSurveyQuestionsSuccess = (data) => {
   console.log('onGetSurveyQuestionsSuccess success', data)
   $('#takeSurvey').empty()
+  store.questions = data.questions
   const showQuestions = showQuestionsTemplate({ questions: data.questions })
   $('#takeSurvey').html(showQuestions)
   $('#surveyTakeModal').modal('show')
+  $('.question-survey-button').on('click', onQuestionSubmit)
+
   // store.surveys = data.surveys
+}
+const onQuestionSubmit = function (event) {
+  event.preventDefault()
+  console.log('onQuestionSubmit', event)
+  console.log('target_id: ', event.target.id)
+  // the button id has the ID, parse it out
+  const data = event.target.id.split('-')
+  const id = data[1]
+  console.log('id: ', id)
+  const questionAnswer = $('#questionInput' + id).val()
+  console.log('questionAnswer: ' + questionAnswer)
+  let sumOfAnswers = 0
+  let numberOfTimesAnswered = 0
+  for (let i = 0; i < store.questions.length; i++) {
+    const item = store.questions[i]
+    if (item.id === id) {
+      sumOfAnswers = item.sumOfAnswers
+      numberOfTimesAnswered = item.numberOfTimesAnswered
+    }
+  }
+  console.log('sumOfAnswers:' + sumOfAnswers)
+  console.log('numberOfTimesAnswered:' + numberOfTimesAnswered)
+  numberOfTimesAnswered++
+  sumOfAnswers += questionAnswer
+  const questionUpdateData = {
+    'question': {
+      'sumOfAnswers': sumOfAnswers,
+      'numberOfTimesAnswered': numberOfTimesAnswered
+    }
+  }
+  api.onUpdateQuestion(questionUpdateData, id)
+    .then(console.log)
 }
 module.exports = {
   getSurveysSuccess,
