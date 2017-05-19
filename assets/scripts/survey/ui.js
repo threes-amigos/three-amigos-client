@@ -242,7 +242,8 @@ const onQuestionSubmit = function (event) {
   console.log('sumOfAnswers:' + sumOfAnswers)
   console.log('numberOfTimesAnswered:' + numberOfTimesAnswered)
   numberOfTimesAnswered++
-  sumOfAnswers += questionAnswer
+  sumOfAnswers = +questionAnswer + +sumOfAnswers
+  console.log('sumOfAnswers: ' + sumOfAnswers)
   const questionUpdateData = {
     'question': {
       'sumOfAnswers': sumOfAnswers,
