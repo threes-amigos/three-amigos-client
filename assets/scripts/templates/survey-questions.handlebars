@@ -2,7 +2,7 @@
 <div class='question-list' width='100%'>
   {{#each questions as |question|}}
   <div class='question{{question.id}} survey'>
-    <ul>{{question.question}}<input type='text' id='questionInput{{question.id}}' placeholder="1-5" min="1" max="5"></ul>
+    <ul>{{question.question}}<input type='number' id='questionInput{{question.id}}' placeholder="1-5" min="1" max="5"></ul>
     <input type='button' value='Submit' id='question-{{question.id}}' class='question-survey-button'>
   {{/each}}
   </div>

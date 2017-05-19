@@ -32,11 +32,8 @@ const getSurveysSuccess = (data) => {
   //   console.log('here is the databack: ', databack)
   // })
   const showSurveysHtml = showSurveysTemplate({ surveys: surveys })
-  $('#content').html(showSurveysHtml)
   $('#userSurveys').empty()
-  // const showSurveysHtml = showSurveysTemplate({ surveys: surveys })
-  $('#userSurveys').html(showSurveysHtml)
-
+  $('#content').html(showSurveysHtml)
   $('.survey-dashboard-link').on('click', onSurveyDashboard)
   $('.question-survey-button').on('click', onQuestionSubmit)
   console.log('this user surverys only: ', surveys)
