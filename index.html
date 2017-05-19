@@ -44,7 +44,7 @@
     <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
         <div class="container topnav">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
+            <div class="navbar-header show-when-logged-in">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
 
@@ -109,16 +109,13 @@
     <!-- Page Content -->
 
 <a name="my-surveys-content" id="my-surveys-content"></a>
-  <div class="content-section-a">
+  <div class="content-section-a show-when-logged-in">
       <div class="container">
           <div class="row">
               <div class="col-lg-5 col-sm-6">
-
-                <hr class="section-heading-spacer">
                 <div class="clearfix"></div>
                 <h2 class="section-heading">My Surveys</h2>
-                <div id="userSurveys" class="userSurveys"> </div>
-                  <hr class="section-heading-spacer">
+                <div id="userSurveys" class="userSurveys lead"> </div>
                   <div id='content'>
                   </div>
                   <div class="clearfix"></div>
@@ -159,7 +156,7 @@
 </div>
     <!-- /.content-section-a -->
 <a  name="create-survey-content" id="create-survey-content"></a>
-  <div class="content-section-b">
+  <div class="content-section-b show-when-logged-in">
     <div class="container">
       <div class="row">
         <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
@@ -190,7 +187,7 @@
 </div>
     <!-- /.content-section-b -->
 <a  name="take-survey-content" id="take-survey-content"></a>
-    <div class="content-section-a">
+    <div class="content-section-a show-when-logged-in">
 
         <div class="container">
 
@@ -211,7 +208,7 @@
     </div>
 
 <a  name="survey-dashboard-content" id="survey-dashboard"></a>
-  <div class="content-section-b">
+  <div class="content-section-b show-when-logged-in">
   <div class="container">
     <div class="row">
       <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
@@ -401,7 +398,7 @@
 
                </div>
                <div class="modal-body">
-                 <p id=infoModalText>Survey Name Goes Here</p>
+                 <p id=infoModalText></p>
                  <p id=surveyNameRequired></p>
                  <form id="do-survey-form">
                  <fieldset>

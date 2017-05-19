@@ -2,7 +2,7 @@
 <div class='survey-list' width='100%'>
   {{#each surveys as |survey|}}
   <div class='survey-{{survey.id}} survey'>
-    <h1><a href='#userSurveys' data-toggle='modal' data-target='#surveyTakeModal' id="suvey-take-{{survey.id}}" class="survey-dashboard-link">{{survey.name}}</a></h1>
+    <h1 class="survey-dashboard-link">{{survey.name}}</a></h1>
     <input type='button' value='Take Survey' id='survey-take-{{survey.id}}' class='take-survey'>
   </div>
   <hr>

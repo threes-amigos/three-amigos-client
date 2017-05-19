@@ -43,6 +43,7 @@ const signInSuccess = (data) => {
   $('.sign-out').show()
   $('.change-password').show()
   $('.sign-up').hide()
+  $('.show-when-logged-in').show()
   // $('.change-password').removeClass('hidden')
   $('body').removeClass('modal-open')
   $('.modal-backdrop').remove()
@@ -77,6 +78,8 @@ const signOutSuccess = () => {
   // don't show User's surveys
   $('#userSurveys').empty()
   $('#allTakeSurveys').empty()
+  $('.show-when-logged-in').hide()
+  $('.dashboard-content').empty()
 }
 const signOutFailure = (error) => {
   $('body').removeClass('modal-open')
