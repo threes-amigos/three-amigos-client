@@ -71,6 +71,7 @@ As a creator, I want to delete questions for survey.
 
 - [ERD image 1](http://i.imgur.com/iSCmY74.jpg)
 - [ERM image 2](http://i.imgur.com/VDSrGf9.jpg)
+- [ERD image 3](http://i.imgur.com/X9F9U5G.png)
 
 ## Development Process
 
