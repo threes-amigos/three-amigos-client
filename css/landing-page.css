@@ -24,7 +24,9 @@ h6 {
 /*h3 {
   color: #e31a57;
 }*/
-
+.survey-dashboard-link {
+  font-weight: 400;
+}
 .topnav {
     font-size: 14px;
 }
@@ -40,7 +42,7 @@ h6 {
     text-align: center;
     /*color: #067a6b;*/
     color: black;
-    background: url(https://cloud.githubusercontent.com/assets/26127720/26208950/68ebef88-3bb9-11e7-820f-b80c232d51d8.jpg) no-repeat center center;
+    background: url(https://raw.githubusercontent.com/threes-amigos/three-amigos-client/master/img/pingpongballquestionmark.jpg) no-repeat center center;
     /*background-size: cover;*/
     background-size: contain;
     font-weight:600;
@@ -182,9 +184,25 @@ p.copyright {
 
 #userSurveys {
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 400 bold;
 }
 
+.logged-in-display {
+  display: none;
+}
+
+.question-dashboard-header {
+  font-weight: bold;
+}
+
+.question-stat {
+  font-weight:normal;
+}
+
+/*
+.userSurveys {
+  float: none;
+}*/
 
 /*
 .hidden {
