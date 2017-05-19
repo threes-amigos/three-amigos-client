@@ -7,11 +7,6 @@ survey, take any survey, and view own survey dashboard.
 - Live API: [Who Wants To Know? API](https://three-amigos.herokuapp.com)
 - API repo on GitHub: [lisamsmith100/hnd-api](https://github.com/threes-amigos/three-amigos-express-api)
 
-![Screenshots of landing section for Who Wants To Know?](https://imgur.com/4OoFp5k)
-![Screenshots of My Surveys section for Who Wants To Know?](https://imgur.com/sL6YGVZ)
-![Screenshots of Create A Survey section for Who Wants To Know?](https://imgur.com/UEC57EG)
-![Screenshots of Take A Survey section for Who Wants To Know?](https://imgur.com/PoR8AZo)
-![Screenshots of Survey Dashboard section for Who Wants To Know?](https://imgur.com/OW3rPQ1)
 
 ## About Who Wants To Know?
 
@@ -23,7 +18,7 @@ Who Wants to Know? is built using HTML, Javascript, JQuery, CSS, Handlebars, Exp
 
 ## Project Planning
 
-[Our Project Plan](https://hnd-client/wdi-proj2-plan.xlsx}
+[Our Project Plan](three-amigos-client/Proj3Plan.xlsx)
 
 ### User Stories
 

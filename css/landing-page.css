@@ -28,7 +28,17 @@ h6 {
 .topnav {
     font-size: 14px;
 }
+.intro-message {
+    position: relative;
+    padding-top: 20%;
+    padding-bottom: 20%;
+}
 
+.intro-message > h1 {
+    margin: 0;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+    font-size: 5em;
+}
 .lead {
     font-size: 18px;
     font-weight: 400;
@@ -50,17 +60,7 @@ img {
   opacity: .9;
 }
 
-.intro-message {
-    position: relative;
-    padding-top: 20%;
-    padding-bottom: 20%;
-}
 
-.intro-message > h1 {
-    margin: 0;
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-    font-size: 5em;
-}
 
 .intro-divider {
     width: 400px;
