@@ -12,6 +12,8 @@ $(() => {
   authEvents.addHandlers()
   surveyEvents.addSurveyHandlers()
   $('.show-when-logged-in').hide()
+  $('intro-header').show()
+  $('intro-message').show()
 })
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
