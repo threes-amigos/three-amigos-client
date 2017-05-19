@@ -84,7 +84,9 @@ const onCreateQuestion = (question, questionNum, surveyID) => {
       'question': {
         'question': question,
         'questionNumber': questionNum,
-        '_survey': surveyID
+        '_survey': surveyID,
+        'sumOfAnswers': 0,
+        'numberOfTimesAnswered': 0
       }
     }
   })

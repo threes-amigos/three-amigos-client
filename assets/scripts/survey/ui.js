@@ -122,6 +122,9 @@ const onCreateSurveySuccess = (data) => {
   $('.modal-backdrop').remove()
   $('#create-questions-modal').modal('toggle')
   // store.surveys = data.surveys
+  api.onGetSurveys()
+    .then(getSurveysSuccess)
+    .catch(getSurveysFailure)
 }
 const onCreateSurveyFailure = (error) => {
   console.log('Get Surveys Failure')
@@ -212,8 +215,17 @@ const onGetSurveyQuestionsSuccess = (data) => {
   const showQuestions = showQuestionsTemplate({ questions: data.questions })
   $('#takeSurvey').html(showQuestions)
   $('#surveyTakeModal').modal('show')
+  $('.question-survey-button').on('click', onQuestionSubmit)
 
   // store.surveys = data.surveys
+}
+const onQuestionSubmit = function (event) {
+  event.preventDefault()
+  console.log('onQuestionSubmit', event)
+  console.log('target_id: ', event.target.id)
+  // the button id has the ID, parse it out
+  const data = event.target.id.split('-')
+  console.log('id: ', data[1])
 }
 module.exports = {
   getSurveysSuccess,
