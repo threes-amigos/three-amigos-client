@@ -127,7 +127,7 @@ img {
 .banner {
     padding: 100px 0;
     color: black;
-    background: url(../assests/img/questions-over-globe.jpg) no-repeat center center;
+    /*background: url(https://i.imgur.com/vwQ62By.jpg) no-repeat center center;*/
     background-size: cover;
 }
 
