@@ -44,7 +44,7 @@
     <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
         <div class="container topnav">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
+            <div class="navbar-header show-when-logged-in">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
 
@@ -80,7 +80,7 @@
                 <div class="col-lg-12">
                     <div class="intro-message">
                         <h1>Who Wants To Know?</h1>
-                        <h3>Create Your Own Survey</h3>
+                        <h3>Create Your Own Survey!!!</h3>
                         <hr class="intro-divider">
                         <ul class="list-inline intro-action-buttons">
                           <li>
@@ -109,16 +109,14 @@
     <!-- Page Content -->
 
 <a name="my-surveys-content" id="my-surveys-content"></a>
-  <div class="content-section-a">
+  <div class="content-section-a show-when-logged-in">
       <div class="container">
           <div class="row">
               <div class="col-lg-5 col-sm-6">
-
-                <hr class="section-heading-spacer">
                 <div class="clearfix"></div>
                 <h2 class="section-heading">My Surveys</h2>
-                <div id="userSurveys" class="userSurveys"> </div>
-                  <hr class="section-heading-spacer">
+                <p class="lead">To display a survey’s dashboard, click on the title of your survey.<br/>You can see how many times a question has been answered and the average score per question.</p>
+                <div id="userSurveys" class="userSurveys lead"> </div>
                   <div id='content'>
                   </div>
                   <div class="clearfix"></div>
@@ -159,7 +157,7 @@
 </div>
     <!-- /.content-section-a -->
 <a  name="create-survey-content" id="create-survey-content"></a>
-  <div class="content-section-b">
+  <div class="content-section-b show-when-logged-in">
     <div class="container">
       <div class="row">
         <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
@@ -190,7 +188,7 @@
 </div>
     <!-- /.content-section-b -->
 <a  name="take-survey-content" id="take-survey-content"></a>
-    <div class="content-section-a">
+    <div class="content-section-a show-when-logged-in">
 
         <div class="container">
 
@@ -211,14 +209,15 @@
     </div>
 
 <a  name="survey-dashboard-content" id="survey-dashboard"></a>
-  <div class="content-section-b">
+  <div class="content-section-b show-when-logged-in">
   <div class="container">
     <div class="row">
       <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
         <hr class="section-heading-spacer">
         <div class="clearfix"></div>
         <h2 class="section-heading">Survey Dashboard</h2>
-        <p class="lead">You can see your average score per question.</p>
+        <p class="lead">To display a survey's information, go to My Survey,<br/>click on the title of your survey.<br/>You can see your average score per question.</p>
+
         <p class="lead dashboard-content"> </p>
       </div>
       <div class="col-lg-5 col-sm-pull-6  col-sm-6">
@@ -398,9 +397,10 @@
                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                    <span aria-hidden="true">&times;</span>
                  </button>
+
                </div>
                <div class="modal-body">
-                 <p id=infoModalText>Survey Name Goes Here</p>
+                 <p id=infoModalText></p>
                  <p id=surveyNameRequired></p>
                  <form id="do-survey-form">
                  <fieldset>
@@ -410,7 +410,7 @@
                      </div>
                    </div>
                      <br>
-                     <input type="submit" name="submit" value="Sumbit Survey">
+                     <!-- <input type="submit" name="submit" value="Sumbit Survey"> -->
                  </fieldset>
                  <br>
                  </form>

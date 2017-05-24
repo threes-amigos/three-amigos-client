@@ -28,28 +28,6 @@ h6 {
 .topnav {
     font-size: 14px;
 }
-
-.lead {
-    font-size: 18px;
-    font-weight: 400;
-}
-
-.intro-header {
-    padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
-    padding-bottom: 50px;
-    text-align: center;
-    /*color: #067a6b;*/
-    color: black;
-    background: url(https://cloud.githubusercontent.com/assets/26127720/26208950/68ebef88-3bb9-11e7-820f-b80c232d51d8.jpg) no-repeat center center;
-    /*background-size: cover;*/
-    background-size: contain;
-    font-weight:600;
-}
-
-img {
-  opacity: .9;
-}
-
 .intro-message {
     position: relative;
     padding-top: 20%;
@@ -61,6 +39,28 @@ img {
     text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
     font-size: 5em;
 }
+.lead {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.intro-header {
+    padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+    padding-bottom: 50px;
+    text-align: center;
+    /*color: #067a6b;*/
+    color: black;
+    background: url(https://i.imgur.com/vwQ62By.jpg) no-repeat center center;
+    /*background-size: cover;*/
+    background-size: contain;
+    font-weight:600;
+}
+
+img {
+  opacity: .9;
+}
+
+
 
 .intro-divider {
     width: 400px;
@@ -127,7 +127,7 @@ img {
 .banner {
     padding: 100px 0;
     color: black;
-    background: url(../img/questions-over-globe.jpg) no-repeat center center;
+    /*background: url(https://i.imgur.com/vwQ62By.jpg) no-repeat center center;*/
     background-size: cover;
 }
 

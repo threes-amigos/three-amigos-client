@@ -84,7 +84,9 @@ const onCreateQuestion = (question, questionNum, surveyID) => {
       'question': {
         'question': question,
         'questionNumber': questionNum,
-        '_survey': surveyID
+        '_survey': surveyID,
+        'sumOfAnswers': 0,
+        'numberOfTimesAnswered': 0
       }
     }
   })
@@ -98,6 +100,16 @@ const onDeleteQuestion = (data) => {
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token}
+  })
+}
+const onUpdateQuestion = (data, id) => {
+  console.log('onUpdateQuestion Called data:', data)
+  return $.ajax({
+    url: config.apiOrigin + '/questions/' + id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token},
+    data
   })
 }
 // const onGetSurveyQuestions = (data) => {
@@ -130,5 +142,6 @@ module.exports = {
   onGetSurveyQuestions,
   onCreateQuestion,
   onDeleteQuestion,
-  onGetSingleSurvey
+  onGetSingleSurvey,
+  onUpdateQuestion
 }
