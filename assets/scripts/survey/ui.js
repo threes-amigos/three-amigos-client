@@ -249,6 +249,8 @@ const onQuestionSubmit = function (event) {
   }
   api.onUpdateQuestion(questionUpdateData, id)
     .then(console.log)
+  console.log('before we hide button: ', event.target.id)
+  $('#' + event.target.id).hide()
 }
 module.exports = {
   getSurveysSuccess,
