@@ -1,9 +1,18 @@
 
 <div class='question-list' width='100%'>
   {{#each questions as |question|}}
-  <div class='question{{question.id}} survey'>
-    <ul>{{question.question}}<input type='number' id='questionInput{{question.id}}' placeholder="1-5" min="1" max="5"></ul>
+  <!-- <div class='question{{question.id}} survey'> -->
+
+    <ul>{{question.question}}
+    <select id='questionInput{{question.id}}'class='question{{question.id}} survey' name="response">
+      <option value=1>1</option>
+      <option value=2>2</option>
+      <option value=3>3</option>
+      <option value=4>4</option>
+      <option value=5>5</option>
+    </select>
     <input type='button' value='Submit' id='question-{{question.id}}' class='question-survey-button'>
+    </ul>
   {{/each}}
   </div>
 </div>
