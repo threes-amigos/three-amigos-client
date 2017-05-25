@@ -118,6 +118,8 @@ const onCreateSurveySuccess = (data) => {
   $('body').removeClass('modal-open')
   $('.modal-backdrop').remove()
   $('#create-questions-modal').modal('toggle')
+  $('.clear-survey-form').val('')
+  $('#survey-create-input').val('')
   // store.surveys = data.surveys
   api.onGetSurveys()
     .then(getSurveysSuccess)
