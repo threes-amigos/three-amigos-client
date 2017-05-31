@@ -70,7 +70,7 @@ const getSurveysSuccess = (data) => {
   $('#allTakeSurveys').show()
   $('.take-survey').on('click', onUserTakeSurvey)
   // adding even handler for the the take survey link
-  $('.survey-dashboard-link').on('click', onUserTakeSurvey)
+  // $('.survey-dashboard-link').on('click', onUserTakeSurvey)
   // const showSurveysHtml = showSurveysTemplate({ surveys: surveys })
 }
 

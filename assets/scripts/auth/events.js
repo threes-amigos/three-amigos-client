@@ -10,9 +10,15 @@ const onSignUp = function (event) {
   const data = getFormFields(this)
   console.log('Data is:', data)
   event.preventDefault()
-  api.signUp(data)
-    .then(ui.signUpSuccess)
-    .catch(ui.signUpFailure)
+  if (data.credentials.password !== data.credentials.password_confirmation) {
+    console.log('error with passwords')
+    ui.showModalMessage('Passwords do not match')
+    $('#sign-up').trigger('reset')
+  } else {
+    api.signUp(data)
+      .then(ui.signUpSuccess)
+      .catch(ui.signUpFailure)
+  }
 }
 const onSignIn = function (event) {
   event.preventDefault()
