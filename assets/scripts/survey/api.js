@@ -4,7 +4,7 @@ const config = require('../config')
 const store = require('../store')
 
 const onGetSurveys = () => {
-  console.log('getUserHives Called')
+  // console.log('getUserHives Called')
   return $.ajax({
     url: config.apiOrigin + '/surveys',
     method: 'GET',
@@ -14,7 +14,7 @@ const onGetSurveys = () => {
 }
 
 const onGetSingleSurvey = (id) => {
-  console.log('onGetSingleSurvey API called')
+  // console.log('onGetSingleSurvey API called')
   return $.ajax({
     url: config.apiOrigin + '/surveys/' + id,
     method: 'GET',
@@ -24,8 +24,8 @@ const onGetSingleSurvey = (id) => {
 }
 
 const onGetSurveyQuestions = (data) => {
-  console.log('get Survey questions')
-  console.log('data passed to API is ', data)
+  // console.log('get Survey questions')
+  // console.log('data passed to API is ', data)
   return $.ajax({
     url: config.apiOrigin + '/questionsbysurvey',
     method: 'GET',
@@ -38,8 +38,8 @@ const onGetSurveyQuestions = (data) => {
 }
 
 const onCreateSurvey = (dataIn) => {
-  console.log('onCreateSurvey data: ', dataIn)
-  console.log('store.user.token ', store.user.token)
+  // console.log('onCreateSurvey data: ', dataIn)
+  // console.log('store.user.token ', store.user.token)
   return $.ajax({
     url: config.apiOrigin + '/surveys',
     method: 'POST',
@@ -56,7 +56,7 @@ const onCreateSurvey = (dataIn) => {
 }
 
 const onDeleteSurvey = (id) => {
-  console.log('onDeleteSurvey Called data:', id)
+  // console.log('onDeleteSurvey Called data:', id)
   return $.ajax({
     url: config.apiOrigin + '/surveys/' + id,
     method: 'DELETE',
@@ -65,7 +65,7 @@ const onDeleteSurvey = (id) => {
   })
 }
 const onUpdateSurvey = (data, id) => {
-  console.log('onUpdateSurvey Called data:', data)
+  // console.log('onUpdateSurvey Called data:', data)
   return $.ajax({
     url: config.apiOrigin + '/surveys/' + id,
     method: 'PATCH',
@@ -93,8 +93,8 @@ const onCreateQuestion = (question, questionNum, surveyID) => {
 }
 // question, questionNum, surveyID
 const onDeleteQuestion = (data) => {
-  console.log('onDeleteQuestion data: ', data)
-  console.log('store.user.token ', store.user.token)
+  // console.log('onDeleteQuestion data: ', data)
+  // console.log('store.user.token ', store.user.token)
   return $.ajax({
     url: config.apiOrigin + '/questions/' + data.deleteId.id,
     method: 'DELETE',
@@ -103,7 +103,7 @@ const onDeleteQuestion = (data) => {
   })
 }
 const onUpdateQuestion = (data, id) => {
-  console.log('onUpdateQuestion Called data:', data)
+  // console.log('onUpdateQuestion Called data:', data)
   return $.ajax({
     url: config.apiOrigin + '/questions/' + id,
     method: 'PATCH',

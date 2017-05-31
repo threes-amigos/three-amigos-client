@@ -4,7 +4,7 @@ const store = require('../store')
 const surveysUI = require('../survey/ui.js')
 const surveysAPI = require('../survey/api.js')
 const signUpSuccess = (data) => {
-  console.log('signUpSuccess called: ', data)
+  // console.log('signUpSuccess called: ', data)
   // Clear the form data entered
   $('#sign-up').trigger('reset')
   $('#sign-up-modal').toggle()
@@ -31,11 +31,11 @@ const signUpFailure = (error) => {
 }
 
 const signInSuccess = (data) => {
-  console.log('Sign-in success: ', data)
+  // console.log('Sign-in success: ', data)
   // Clear the form data entered
   $('#sign-in').trigger('reset')
   store.user = data.user
-  console.log('Token: ', store.user.token)
+  // console.log('Token: ', store.user.token)
   $('#sign-in-modal').toggle()
   // $('.first-display').addClass('hidden')
   $('.btn-default').show()
@@ -55,7 +55,7 @@ const signInSuccess = (data) => {
 }
 
 const signInFailure = (error) => {
-  console.log('Sign In Failure')
+  // console.log('Sign In Failure')
   $('#sign-in').trigger('reset')
   $('body').removeClass('modal-open')
   $('.modal-backdrop').remove()
@@ -63,7 +63,7 @@ const signInFailure = (error) => {
   console.error(error)
 }
 const signOutSuccess = () => {
-  console.log('Sign Out success: ')
+  // console.log('Sign Out success: ')
   // clean up the stored value
   store.user = null
   $('#sign-out-modal').toggle()
@@ -85,11 +85,11 @@ const signOutFailure = (error) => {
   $('body').removeClass('modal-open')
   $('.modal-backdrop').remove()
   showModalMessage('Your sign-out was not successful.  Hmmm.')
-  console.error(error)
+  // console.error(error)
 }
 const changePasswordSuccess = () => {
   // Clear the form data entered
-  console.log('Change Password success')
+  // console.log('Change Password success')
   $('#change-password').trigger('reset')
   $('#change-password-modal').toggle()
   $('body').removeClass('modal-open')
@@ -97,12 +97,12 @@ const changePasswordSuccess = () => {
   showModalMessage('You have changed your password. Carry on!')
 }
 const changePasswordFailure = (error) => {
-  console.log('Change Password Out Failure')
+  // console.log('Change Password Out Failure')
   $('#change-password').trigger('reset')
   $('body').removeClass('modal-open')
   $('.modal-backdrop').remove()
   showModalMessage('Your password change was not successful.  Try again.')
-  console.error(error)
+  // console.error(error)
 }
 
 const showModalMessage = function (message) {

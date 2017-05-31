@@ -8,8 +8,8 @@ const showDashboardTemplate = require('../templates/survey-dashboard.handlebars'
 const showAllSurveysTemplate = require('../templates/all-survey-listing.handlebars')
 
 const getSurveysSuccess = (data) => {
-  console.log('Get Surveys success', data)
-  console.log('data.surveys is, ', data.surveys)
+  // console.log('Get Surveys success', data)
+  // console.log('data.surveys is, ', data.surveys)
   const surveys = []
   for (let i = 0; i < data.surveys.length; i++) {
     const item = data.surveys[i]
@@ -19,7 +19,7 @@ const getSurveysSuccess = (data) => {
   }
   const onQuestionSubmit = function (event) {
     event.preventDefault()
-    console.log('submit question')
+    // console.log('submit question')
   }
   // // console.log('data.surveys', surveys[3].id)
   // // const surveyData = {
@@ -36,7 +36,7 @@ const getSurveysSuccess = (data) => {
   $('#content').html(showSurveysHtml)
   $('.survey-dashboard-link').on('click', onSurveyDashboard)
   $('.question-survey-button').on('click', onQuestionSubmit)
-  console.log('this user surverys only: ', surveys)
+  // console.log('this user surverys only: ', surveys)
   // store.surveys = data.surveys
   store.surveys = surveys
   store.allSurveys = data.surveys
@@ -53,10 +53,10 @@ const getSurveysSuccess = (data) => {
   $('.delete-survey').on('click', function (event) {
     event.preventDefault()
     // console.log('onDeleteSurvey: ', event)
-    console.log('target_id: ', event.target.id)
+    // console.log('target_id: ', event.target.id)
     // the button id has the ID, parse it out
     const data = event.target.id.split('-')
-    console.log('id: ', data[2])
+    // console.log('id: ', data[2])
     api.onDeleteSurvey(data[2])
       .then(onDeleteSurveySuccess)
       .catch(onDeleteSurveyFailure)
@@ -76,44 +76,44 @@ const getSurveysSuccess = (data) => {
 
 const onSurveyDashboard = function () {
   store.dashboardID = $(this).attr('id')
-  console.log('onSurveyDashboard id ', store.dashboardID)
+  // console.log('onSurveyDashboard id ', store.dashboardID)
   const surveyData = {
     'survey': {
       'id': store.dashboardID
     }
   }
-  console.log('surveyData is ', surveyData)
+  // console.log('surveyData is ', surveyData)
   api.onGetSurveyQuestions(surveyData)
     .then((questionsData) => {
-      console.log('onGetSurveyQuestions databack is ', questionsData)
+      // console.log('onGetSurveyQuestions databack is ', questionsData)
       return questionsData
     })
     .then((questionsData) => {
       api.onGetSingleSurvey(store.dashboardID)
         .then((databack) => {
-          console.log('databack is ', databack)
+          // console.log('databack is ', databack)
           const showDashboardHtml = showDashboardTemplate({ survey: databack.survey, questions: questionsData.questions })
-          console.log('databack name is ', databack.survey.name)
+          // console.log('databack name is ', databack.survey.name)
           $('.dashboard-content').html(showDashboardHtml)
         })
     })
 }
 
 const getSurveysFailure = (error) => {
-  console.log('Get Surveys Failure')
+  // console.log('Get Surveys Failure')
   console.error(error)
 }
 const onCreateSurveySuccess = (data) => {
-  console.log('Create Survey success', data)
+  // console.log('Create Survey success', data)
 
   $('.create-survey-modal').modal('toggle')
   $('body').removeClass('modal-open')
   $('.modal-backdrop').remove()
 
-  console.log('Data.name', data.survey.name)
+  // console.log('Data.name', data.survey.name)
   store.name = data.survey.name
   store.surveyID = data.survey.id
-  console.log(store.name)
+  // console.log(store.name)
   $('#question-form-survey-name').html(store.name)
   $('body').removeClass('modal-open')
   $('.modal-backdrop').remove()
@@ -126,7 +126,7 @@ const onCreateSurveySuccess = (data) => {
     .catch(getSurveysFailure)
 }
 const onCreateSurveyFailure = (error) => {
-  console.log('Get Surveys Failure')
+  // console.log('Get Surveys Failure')
   console.error(error)
 }
 const onDeleteSurveySuccess = (data) => {
@@ -134,50 +134,50 @@ const onDeleteSurveySuccess = (data) => {
   api.onGetSurveys()
     .then(getSurveysSuccess)
     .catch(getSurveysFailure)
-  console.log('Delete Survey success', data)
+  // console.log('Delete Survey success', data)
   // store.surveys = data.surveys
 }
 const onDeleteSurveyFailure = (error) => {
-  console.log('Delete Surveys Failure')
+  // console.log('Delete Surveys Failure')
   console.error(error)
 }
 const onUpdateSurveySuccess = () => {
   // update the store with the vaild surveys
-  console.log('Update Survey success')
+  // console.log('Update Survey success')
   // update the store with the vaild surveys
   api.onGetSurveys()
     .then(getSurveysSuccess)
     .catch(getSurveysFailure)
 }
 const onUpdateSurveyFailure = (error) => {
-  console.log('Update Surveys Failure')
+  // console.log('Update Surveys Failure')
   console.error(error)
 }
 
 const onCreateQuestionSuccess = (data) => {
-  console.log('Create Question success', data)
+  // console.log('Create Question success', data)
   // store.surveys = data.surveys
 }
 const onCreateQuestionFailure = (error) => {
-  console.log('create-survey Question Failure')
+  // console.log('create-survey Question Failure')
   console.error(error)
 }
 const onDeleteQuestionSuccess = () => {
-  console.log('Delete Question success')
+  // console.log('Delete Question success')
   // store.surveys = data.surveys
 }
 const onDeleteQuestionFailure = (error) => {
-  console.log('Delete Question Failure')
+  // console.log('Delete Question Failure')
   console.error(error)
 }
 const onUserUpdateSurvey = (event) => {
-  console.log('onUserUpdateSurvey', event)
+  // console.log('onUserUpdateSurvey', event)
   const data = event.target.id.split('-')
   // let's store the ID. The Modal that handles update does
   // not have the ID associated with the button
   store.updateSurveyID = data[2]
   const name = findSurveyNameByID(data[2])
-  console.log('survey current name: ' + name)
+  // console.log('survey current name: ' + name)
   $('#current-survey-name').val(name)
   $('#surveyUpdateModal').modal('show')
 }
@@ -190,26 +190,26 @@ const findSurveyNameByID = function (id) {
   }
 }
 const onUserTakeSurvey = function (event) {
-  console.log('onUserTakeSurvey called')
+  // console.log('onUserTakeSurvey called')
   const data = event.target.id.split('-')
-  console.log('Survey id: ', data[2])
+  // console.log('Survey id: ', data[2])
   const surveyID = {
     'survey': {
       'id': data[2]
     }
   }
-  console.log('Survey id: ', data[2])
-  console.log('Survey data: ', surveyID)
+  // console.log('Survey id: ', data[2])
+  // console.log('Survey data: ', surveyID)
   api.onGetSurveyQuestions(surveyID)
   .then(onGetSurveyQuestionsSuccess)
   .catch(onGetSurveyQuestionsFailure)
 }
 const onGetSurveyQuestionsFailure = (error) => {
-  console.log('onGetSurveyQuestionsFailure Failure')
+  // console.log('onGetSurveyQuestionsFailure Failure')
   console.error(error)
 }
 const onGetSurveyQuestionsSuccess = (data) => {
-  console.log('onGetSurveyQuestionsSuccess success', data)
+  // console.log('onGetSurveyQuestionsSuccess success', data)
   $('#takeSurvey').empty()
   store.questions = data.questions
   const showQuestions = showQuestionsTemplate({ questions: data.questions })
@@ -221,14 +221,14 @@ const onGetSurveyQuestionsSuccess = (data) => {
 }
 const onQuestionSubmit = function (event) {
   event.preventDefault()
-  console.log('onQuestionSubmit', event)
-  console.log('target_id: ', event.target.id)
+  // console.log('onQuestionSubmit', event)
+  // console.log('target_id: ', event.target.id)
   // the button id has the ID, parse it out
   const data = event.target.id.split('-')
   const id = data[1]
-  console.log('id: ', id)
+  // console.log('id: ', id)
   const questionAnswer = $('#questionInput' + id).val()
-  console.log('questionAnswer: ' + questionAnswer)
+  // console.log('questionAnswer: ' + questionAnswer)
   let sumOfAnswers = 0
   let numberOfTimesAnswered = 0
   for (let i = 0; i < store.questions.length; i++) {
@@ -238,11 +238,11 @@ const onQuestionSubmit = function (event) {
       numberOfTimesAnswered = item.numberOfTimesAnswered
     }
   }
-  console.log('sumOfAnswers:' + sumOfAnswers)
-  console.log('numberOfTimesAnswered:' + numberOfTimesAnswered)
+  // console.log('sumOfAnswers:' + sumOfAnswers)
+  // console.log('numberOfTimesAnswered:' + numberOfTimesAnswered)
   numberOfTimesAnswered++
   sumOfAnswers = +questionAnswer + +sumOfAnswers
-  console.log('sumOfAnswers: ' + sumOfAnswers)
+  // console.log('sumOfAnswers: ' + sumOfAnswers)
   const questionUpdateData = {
     'question': {
       'sumOfAnswers': sumOfAnswers,
@@ -250,8 +250,8 @@ const onQuestionSubmit = function (event) {
     }
   }
   api.onUpdateQuestion(questionUpdateData, id)
-    .then(console.log)
-  console.log('before we hide button: ', event.target.id)
+  //  .then(console.log)
+  //console.log('before we hide button: ', event.target.id)
   $('#questionSubmit-' + id).hide()
 }
 module.exports = {
