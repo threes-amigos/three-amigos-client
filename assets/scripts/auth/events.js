@@ -8,11 +8,11 @@ const ui = require('./ui')
 
 const onSignUp = function (event) {
   const data = getFormFields(this)
-  // console.log('Data is:', data)
+  console.log('Data is:', data)
   event.preventDefault()
-  if (data.credentials.password !== data.credentials.password_confirmation) {
+  if (data.credentials.password !== data.credentials.password_confirmation || data.credentials.password === '' || data.credentials.password_confirmation === '') {
     // console.log('error with passwords')
-    ui.showModalMessage('Passwords do not match')
+    ui.showModalMessage('Passwords do not match or are blank')
     $('#sign-up').trigger('reset')
   } else {
     api.signUp(data)

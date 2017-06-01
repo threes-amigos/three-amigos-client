@@ -130,10 +130,11 @@ const onCreateSurveyFailure = (error) => {
   console.error(error)
 }
 const onDeleteSurveySuccess = (data) => {
-  // update the store with the vaild surveys
+  // update the store with the vaild survey
   api.onGetSurveys()
     .then(getSurveysSuccess)
     .catch(getSurveysFailure)
+  $('.dashboard-content').html('')
   // console.log('Delete Survey success', data)
   // store.surveys = data.surveys
 }

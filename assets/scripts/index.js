@@ -2,7 +2,9 @@
 
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
-
+// const resetForm = function () {
+//   $('#sign-up-modal').trigger('reset')
+// }
 $(() => {
   setAPIOrigin(location, config)
   authEvents.addHandlers()
@@ -10,7 +12,20 @@ $(() => {
   $('.show-when-logged-in').hide()
   $('intro-header').show()
   $('intro-message').show()
+  $('#sign-up-modal').on('hidden.bs.modal', function () {
+    $(this).find('form').trigger('reset')
+  })
+  $('#sign-in-modal').on('hidden.bs.modal', function () {
+    $(this).find('form').trigger('reset')
+  })
+  $('#create-questions-modal').on('hidden.bs.modal', function () {
+    $(this).find('form').trigger('reset')
+  })
+  $('#change-password-modal').on('hidden.bs.modal', function () {
+    $(this).find('form').trigger('reset')
+  })
 })
+
 const authEvents = require('./auth/events.js')
 const surveyEvents = require('./survey/events.js')
 
